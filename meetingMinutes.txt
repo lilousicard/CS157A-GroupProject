@@ -1,0 +1,25 @@
+09/06/2022 at 1345
+GitHub setting - Added Tam and Zaria as coworker
+
+Brainstorm
+Book read list
+Movie  that have been watched
+
+
+List of task 
+- Front end
+- Back end
+- SQL
+
+List of component
+- Search feature
+- Sort feature
+- Profile feature
+- Recomandation
+- Filter feature
+- Ratings
+- Youtube link to movie trailer
+- (overing over movie to start preview)
+- favorite list
+
+Started Project Proposal 

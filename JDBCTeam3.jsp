@@ -29,7 +29,7 @@
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM MovieList");
             while (rs.next()) {
-                out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + "<br/><br/>");
+                out.println(rs.getString(1) + " " + rs.getInt(2) + " " + rs.getInt(3) + "<br/><br/>");
             }
             rs.close();
             stmt.close();

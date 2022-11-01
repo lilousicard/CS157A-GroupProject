@@ -14,23 +14,21 @@ CREATE TABLE `movie` (
    `rating` decimal(10,1) DEFAULT NULL,
    `language` varchar(15) DEFAULT NULL,
    `imgpath` varchar(50) DEFAULT NULL,
-   `poster_URL` varchar(100) DEFAULT NULL,
-   `studio_name` varchar(50) DEFAULT NULL,
    PRIMARY KEY (`movie_id`)
  ) ;
  
- INSERT INTO `movie`(`title`,`genre`,`year`,`duration`,`rating`,`language`,`description`,`imgpath`,`poster_URL`) VALUES 
+ INSERT INTO `movie`(`title`,`genre`,`year`,`duration`,`rating`,`language`,`description`,`imgpath`) VALUES 
 
-('Rampage', 'fiction', '2017', '120','4.1','English', 'animals', 'rampage.jpg', 'RAMPAGE Trailer.mp4'),
-('Black panther', 'fiction', '2017', '140','4.1','English', 'super hero movie', 'blackpanther.jpg', 'Black Panther.mp4'),
-('Spiderman homecoming', 'fiction', '2018', '110','4.3','English', 'super hero movie', 'spider-man-homecoming.jpg', 'Spider-Man Homecoming.mp4'),
-('Jumanji', 'adventure', '2017', '130','3.8','English', '4 kids stuck in video game', 'jumanji2017.jpg', 'JUMANJI 17.mp4'),
-('The conjuring', 'horror', '2013', '120','4.0','English', 'ghost house', 'Conjuring.jpg', 'The Conjuring.mp4'),
-('The conjuring 2', 'horror', '2015', '115','4.1','English', 'cursed family', 'conjuring2.jpg', 'The Conjuring 2.mp4'),
-('Avengers: infinity war', 'fiction', '2018', '123','4.4','English', 'collaboration of all marvel characters','infinitywar.jpg', 'Avengers Infinity War.mp4'),
-('Black Adam', 'action', '2022', '132','4.4','English', '','blackadam.jpg', 'blackadam.mp4'),
-('Halloween Ends', 'horror', '2022', '120','4.0','English', 'collaboration of all marvel characters','halloweenends.jpg', 'halloweenends.mp4'),
-('The Stranger', 'drama', '2022', '125','4.4','English', 'collaboration of all marvel characters','thestranger.jpg', 'thestranger.mp4');
+('Rampage', 'action', '2018', '107','4.1','English', 'It is based on the video game series of the same name by Midway Games,', 'rampage.jpg'),
+('Black Panther', 'fiction', '2018', '134','4.1','English', 'An American superhero film based on the Marvel Comics character of the same name.', 'blackpanther.jpg'),
+('Spiderman Homecoming', 'action', '2017', '133','4.3','English', 'An American superhero film based on the Marvel Comics character Spider-Man.', 'spider-man-homecoming.jpg'),
+('Jumanji: Welcome to the Jungle', 'adventure', '2017', '119','3.8','English', 'The story focuses on a group of teenagers who come across Jumanji, now transformed into a video game twenty-two years after the events of the 1995 film. They find themselves trapped in the game as a set of adult avatars, seeking to complete a quest alongside another player who has been trapped since 1996.', 'jumanji2017.jpg'),
+('The conjuring', 'horror', '2013', '112','4.0','English', 'ghost house', 'Conjuring.jpg'),
+('The conjuring 2', 'horror', '2015', '115','4.1','English', 'cursed family', 'conjuring2.jpg'),
+('Avengers: infinity war', 'fiction', '2018', '149','4.4','English', ' The Avengers and the Guardians of the Galaxy attempt to prevent Thanos from collecting the six all-powerful Infinity Stones as part of his quest to kill half of all life in the universe.','infinitywar.jpg'),
+('Black Adam', 'action', '2022', '124','4.4','English', 'An American superhero film based on the DC Comics character of the same name.','blackadam.jpg'),
+('Halloween Ends', 'horror', '2022', '111','4.0','English', 'An American slasher film that is the sequel to Halloween Kills (2021), the thirteenth installment in the Halloween franchise, and the final film in the trilogy of sequels that started with the 2018 film, which directly follows the 1978 film.','halloweenends.jpg'),
+('The Stranger', 'drama', '2022', '116','4.4','English', "Based on the non-fiction book The Sting: The Undercover Operation That Caught Daniel Morcombe's Killer by Kate Kyriacou, and inspired by the murder investigation of Daniel Morcombe,[1] the film follows an investigation of a child abduction case, with an undercover police officer (Edgerton) in a sting operation tasked with getting close to and forming a friendship with the prime suspect (Harris).",'thestranger.jpg');
 
 SELECT * FROM movie;
 
@@ -150,12 +148,6 @@ INSERT INTO `actors` (`name`, `gender`) VALUES
 
 
 
-
-
-
-
-
-
 DROP TABLE IF EXISTS `directors`;
 CREATE TABLE `directors` (
    `director_id` int NOT NULL AUTO_INCREMENT,
@@ -179,16 +171,30 @@ INSERT INTO `directors` (`name`) VALUES
 
 
 
-
-
 DROP TABLE IF EXISTS `awards`;
 CREATE TABLE `awards` (
-   `award_id` int NOT NULL,
+   `award_id` int NOT NULL AUTO_INCREMENT,
    `name` varchar(200) NOT NULL,
    `organization` varchar(225) DEFAULT NULL,
-   `country` varchar(30) DEFAULT NULL,
+   `year` varchar(225) DEFAULT NULL,
    PRIMARY KEY (`award_id`)
 );
+INSERT INTO `awards`(`name`,`organization`,`year`) VALUES
+(`Best Achievement in Costume Design`, `Oscar`,`2019`),
+(`Best Achievement in Production Design`, `Oscar`,`2019`),
+(`Best Achievement in Special Visual Effects`, `BAFTA Film Award`,`2019`),
+(`Best Performance by a Younger Actor`,`Saturn Award`,`2018`),
+(`Favorite Movie Actress`, `Blimp Award`,`2018`),
+(`Best Billboard`, `Golden Trailer`,`2018`),
+(`Favorite Movie`, `Blimp Award`,`2018`),
+(`Best Horror Film`, `Saturn Award`,`2014`),
+(`Best Horror`, `Empire Award`, `2014`),
+(`Top Box Office Films`, `ASCAP Award`, `2017`),
+(`Best Horror TV Spot`, `Golden Trailer`, `2016`),
+(`Feature Film VFX`, `AEAF`, `2018`),
+(`Best Visual Effects`, `ACCA`, `2019`);
+
+
 
 DROP TABLE IF EXISTS `cast`;
 CREATE TABLE `cast` (
@@ -210,6 +216,7 @@ INSERT INTO `cast` (`movie_id`, `actor_id`) VALUES
 (3,12),
 (3,13),
 (4,14),
+(4,1),
 (4,15),
 (4,16),
 (5,17),
@@ -262,6 +269,20 @@ CREATE TABLE `received` (
    `movie_id` int NOT NULL,
    `award_id` int NOT NULL
  );
+INSERT INTO `received` (`movie_id`, `award_id`) VALUES
+(2,1),
+(2,2),
+(2,3),
+(3,4),
+(3,5),
+(4,6),
+(4,7),
+(5,8),
+(5,9),
+(6,10),
+(6,11),
+(7,12),
+(7,13);
 
  
 DROP TABLE IF EXISTS `liked`;

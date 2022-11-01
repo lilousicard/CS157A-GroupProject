@@ -1,13 +1,14 @@
-<%@ page session="false" %>
 
 <!DOCTYPE html>
+
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.*" %>
 
 <html>
 	<head>
 		<title>Flick It Up!</title>
 		  <link rel="stylesheet" type="text/css" href="../css/register.css">
 		  <link href="css/hover.css" rel="stylesheet" media="all">
-      <%@ page import="java.sql.*"%>
 	</head>
 
 	<body>

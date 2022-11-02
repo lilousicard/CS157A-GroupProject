@@ -18,7 +18,6 @@ CREATE TABLE `movie` (
  ) ;
  
  INSERT INTO `movie`(`title`,`genre`,`year`,`duration`,`rating`,`language`,`description`,`imgpath`) VALUES 
-
 ('Rampage', 'action', '2018', '107','4.1','English', 'It is based on the video game series of the same name by Midway Games,', 'rampage.jpg'),
 ('Black Panther', 'fiction', '2018', '134','4.1','English', 'An American superhero film based on the Marvel Comics character of the same name.', 'blackpanther.jpg'),
 ('Spiderman Homecoming', 'action', '2017', '133','4.3','English', 'An American superhero film based on the Marvel Comics character Spider-Man.', 'spider-man-homecoming.jpg'),
@@ -78,6 +77,7 @@ PRIMARY KEY (`user_id`)
 ('Tiffany Luu', 'sub', '9'),
 ('Austin Gracia', 'main', '10');
 
+
 DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
 	`account_id` int NOT NULL,
@@ -88,7 +88,6 @@ CREATE TABLE `payment` (
 	`zipcode` int NOT NULL,
    PRIMARY KEY (`account_id`)
 );
-
 INSERT INTO `payment` (`account_id`, `name`, `card_number`, `CVV`,`exp_date`,`zipcode`) VALUES
 (1, 'Shub Browns','1729374664648986', '456','01/25','95112'),
 (2, 'Soubik Smith','5653956485264689', '109','09/23','95111'),
@@ -135,7 +134,6 @@ INSERT INTO `actors` (`name`, `gender`) VALUES
 ('Josh Brolin','male'),
 ('Chris Hemsworth','male'),
 ('Chris Evans','male'),
-
 ('Aldis Hodge','male'),
 ('Noah Centineo','male'),
 ('Sarah Shahi','female'),
@@ -176,24 +174,24 @@ CREATE TABLE `awards` (
    `award_id` int NOT NULL AUTO_INCREMENT,
    `name` varchar(200) NOT NULL,
    `organization` varchar(225) DEFAULT NULL,
-   `year` varchar(225) DEFAULT NULL,
+   `year` int DEFAULT NULL,
+   `movie_id` int NOT NULL,
    PRIMARY KEY (`award_id`)
 );
-INSERT INTO `awards`(`name`,`organization`,`year`) VALUES
-(`Best Achievement in Costume Design`, `Oscar`,`2019`),
-(`Best Achievement in Production Design`, `Oscar`,`2019`),
-(`Best Achievement in Special Visual Effects`, `BAFTA Film Award`,`2019`),
-(`Best Performance by a Younger Actor`,`Saturn Award`,`2018`),
-(`Favorite Movie Actress`, `Blimp Award`,`2018`),
-(`Best Billboard`, `Golden Trailer`,`2018`),
-(`Favorite Movie`, `Blimp Award`,`2018`),
-(`Best Horror Film`, `Saturn Award`,`2014`),
-(`Best Horror`, `Empire Award`, `2014`),
-(`Top Box Office Films`, `ASCAP Award`, `2017`),
-(`Best Horror TV Spot`, `Golden Trailer`, `2016`),
-(`Feature Film VFX`, `AEAF`, `2018`),
-(`Best Visual Effects`, `ACCA`, `2019`);
-
+INSERT INTO `awards`(`name`,`organization`,`year`,`movie_id`) VALUES
+('Best Achievement in Costume Design', 'Oscar', 2019, 2),
+('Best Achievement in Production Design', 'Oscar', 2019, 2),
+('Best Achievement in Special Visual Effects', 'BAFTA Film Award', 2019, 2),
+('Best Performance by a Younger Actor','Saturn Award', 2018, 3),
+('Favorite Movie Actress', 'Blimp Award', 2018, 3),
+('Best Billboard', 'Golden Trailer',2018, 4),
+('Favorite Movie', 'Blimp Award',2018, 4),
+('Best Horror Film', 'Saturn Award',2014, 5),
+('Best Horror', 'Empire Award', 2014, 5),
+('Top Box Office Films', 'ASCAP Award', 2017, 6),
+('Best Horror TV Spot', 'Golden Trailer', 2016, 6),
+('Feature Film VFX', 'AEAF', 2018, 7),
+('Best Visual Effects', 'ACCA', 2019, 7);
 
 
 DROP TABLE IF EXISTS `cast`;
@@ -243,7 +241,6 @@ INSERT INTO `cast` (`movie_id`, `actor_id`) VALUES
 (10,35);
 
 
-
 DROP TABLE IF EXISTS `directed`;
 CREATE TABLE `directed` (
    `movie_id` int NOT NULL,
@@ -263,26 +260,6 @@ INSERT INTO `directed` (`movie_id`, `director_id`) VALUES
 (8,10),
 (9,11),
 (10,12);
-
-DROP TABLE IF EXISTS `received`;
-CREATE TABLE `received` (
-   `movie_id` int NOT NULL,
-   `award_id` int NOT NULL
- );
-INSERT INTO `received` (`movie_id`, `award_id`) VALUES
-(2,1),
-(2,2),
-(2,3),
-(3,4),
-(3,5),
-(4,6),
-(4,7),
-(5,8),
-(5,9),
-(6,10),
-(6,11),
-(7,12),
-(7,13);
 
  
 DROP TABLE IF EXISTS `liked`;

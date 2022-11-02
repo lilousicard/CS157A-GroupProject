@@ -194,12 +194,12 @@ INSERT INTO `awards`(`name`,`organization`,`year`,`movie_id`) VALUES
 ('Best Visual Effects', 'ACCA', 2019, 7);
 
 
-DROP TABLE IF EXISTS `cast`;
-CREATE TABLE `cast` (
+DROP TABLE IF EXISTS `star-in`;
+CREATE TABLE `star-in` (
    `movie_id` int NOT NULL,
    `actor_id` int NOT NULL
 );
-INSERT INTO `cast` (`movie_id`, `actor_id`) VALUES
+INSERT INTO `star-in` (`movie_id`, `actor_id`) VALUES
 (1,1),
 (1,2),
 (1,3),
@@ -262,12 +262,12 @@ INSERT INTO `directed` (`movie_id`, `director_id`) VALUES
 (10,12);
 
  
-DROP TABLE IF EXISTS `liked`;
-CREATE TABLE `liked` (
+DROP TABLE IF EXISTS `favorite`;
+CREATE TABLE `favorite` (
    `user_id` int NOT NULL,
    `movie_id` int NOT NULL
  );
- INSERT INTO `liked` (`user_id`, `movie_id`) VALUES
+ INSERT INTO `favorite` (`user_id`, `movie_id`) VALUES
 (1,1),
 (1,2),
 (2,10),

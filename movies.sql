@@ -1,8 +1,4 @@
--- make auto increment for id number
--- send a diagram to Lilou after done with the database
--- date for payment date type??
--- insert data into the tables (star war movies)
-
+DROP TABLE IF EXISTS `movie`;
 DROP TABLE IF EXISTS `movie`;
 CREATE TABLE `movie` (
    `movie_id` int  NOT NULL AUTO_INCREMENT,
@@ -302,4 +298,5 @@ CREATE TABLE `review` (
 (5,1, 5,'I like it'),
 (4,3, 4,'good'),
 (9,3, 3,'boring');
+
  

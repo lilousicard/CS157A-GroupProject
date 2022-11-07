@@ -7,11 +7,12 @@
   <body>
   <%
    int accountID = (Integer)session.getAttribute("accountID");
-   out.println(accountID);
+   //out.println(accountID);
 
    StringBuilder builder = new StringBuilder();
-
-   builder.append("SELECT * FROM `CS157A-Team3`.account WHERE account_id = ");
+	 String [] str = {" "," "," "," "};
+	 int [] id = {-1,-1,-1,-1};
+   builder.append("SELECT * FROM `CS157A-Team3`.user WHERE account_id = ");
    builder.append(accountID);
    builder.append(";");
    String query = builder.toString();
@@ -23,11 +24,37 @@
        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS157A-Team3?autoReconnect=true&useSSL=false",user, password);
        Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
        ResultSet rs = stmt.executeQuery(query);
-       rs.next();
-       out.print(rs.getString(4));
+			 int i=0;
+       while(rs.next()){
+       	//out.println(rs.getString(2)+ "<br/><br/>");
+				str[i]=rs.getString(2);
+				id[i] = rs.getInt(1);
+				i++;
+		 	}
      }catch(SQLException e) {
          out.println("SQLException caught: " + e.getMessage());
      }
   %>
+
+	  <form method="post">
+			<label for="users">Choose an User</label>
+		<select id="users" name="users">
+		  <option value=<%= id[0] %>><%= str[0] %></option>
+		  <option value=<%= id[1] %>><%= str[1] %></option>
+		  <option value=<%= id[2] %>><%= str[2] %></option>
+		  <option value=<%= id[3] %>><%= str[3] %></option>
+		</select>
+		<input type="submit" value="Go To User" name="goUser">
+		</form>
+
+		<%
+			String input = request.getParameter("goUser");
+			if(input != null){
+				session.setAttribute("userID",Integer.parseInt(request.getParameter("users")));
+				response.sendRedirect("users.jsp");
+			}
+
+		%>
+
   </body>
 </html>

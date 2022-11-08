@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>Flick It Up!</title>
-		<link rel=“stylesheet” type=“text/css” href=“/css/register.css”>
 	</head>
   <body>
   <%
@@ -51,10 +50,13 @@
 			String input = request.getParameter("goUser");
 			if(input != null){
 				session.setAttribute("userID",Integer.parseInt(request.getParameter("users")));
-				response.sendRedirect("users.jsp");
+				response.sendRedirect("home.jsp");
 			}
 
 		%>
+		<a href="http://localhost:8080/project/home.jsp">Go To Home Page</a><br>
+		<a href="http://localhost:8080/project/billing.jsp">Billing Info</a>
+
 
   </body>
 </html>

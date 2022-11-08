@@ -1,0 +1,57 @@
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.*" %>
+
+<head>
+    <title>Flick It Up!</title>
+</head>
+<body>
+  <a href="http://localhost:8080/project/home.jsp">Home Page</a><br>
+  <%if (session.getAttribute("accountID")==null){%>
+  <h1>Error, Please try again Later</h1>
+
+  <% }else{
+    String user = "appdb";
+    String password = "password";
+    try{
+    java.sql.Connection con;
+    Class.forName("com.mysql.jdbc.Driver");
+    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS157A-Team3?autoReconnect=true&useSSL=false",user, password);
+    Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+    int accountID = (Integer)session.getAttribute("accountID");
+    StringBuilder builder = new StringBuilder();
+    builder.append("SELECT * FROM `CS157A-Team3`.payment WHERE account_id =  ");
+    builder.append(accountID);
+    builder.append(";");
+
+    String query = builder.toString();
+
+    ResultSet rs = stmt.executeQuery(query);
+
+    while(rs.next()){
+      out.println("Name: "+rs.getString(2)+ "<br/><br/>");
+      out.println("Card Number: "+rs.getString(3)+ "<br/><br/>");
+      out.println("Expiration Date: "+rs.getString(5)+ "<br/><br/>");
+    }
+
+    rs.close();
+    stmt.close();
+    con.close();
+  }catch(SQLException e) {
+      out.println("SQLException caught: " + e.getMessage());
+  }
+  %>
+  <a href="http://localhost:8080/project/CardForm.jsp">Change Billing information</a><br>
+
+  <%
+
+  }
+
+  %>
+
+
+
+
+
+
+</body>

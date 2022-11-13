@@ -1,4 +1,6 @@
-DROP TABLE IF EXISTS `movie`;
+
+CREATE DATABASE IF NOT EXISTS CS157A_Proj;
+USE CS157A_Proj;
 DROP TABLE IF EXISTS `movie`;
 CREATE TABLE `movie` (
    `movie_id` int  NOT NULL AUTO_INCREMENT,
@@ -31,7 +33,7 @@ SELECT * FROM movie;
  DROP TABLE IF EXISTS `account`;
  CREATE TABLE `account` (
    `account_id` int NOT NULL AUTO_INCREMENT,
-   `username` varchar(50) NOT NULL,
+   `username` varchar(50) NOT NULL UNIQUE,
    `password` varchar(15) NOT NULL,
    `email` varchar(200) NOT NULL,
    PRIMARY KEY (`account_id`)

@@ -27,9 +27,9 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td id=“Username”><input type=“text”/></td>
-						<td id=“Password”><input type=“password”/></td>
-						<td id=“Email”><input type=“email”/></td>
+						<td id=“Username” name="Username"><input type=“text”/></td>
+						<td id=“Password” name="Password"><input type=“password”/></td>
+						<td id=“Email” name="Email"><input type=“email”/></td>
 					</tr>
 				</tbody>
 			</table>
@@ -46,9 +46,7 @@
   if (Username==null || Password==null || Email==null||Username=="" || Password=="" || Email=="")
   {%>
     <br>
-    <TABLE>
-      <tr><th>Wrong Entries</th></tr>
-    </table>
+	<h3>Entries are incorrect, try again</h3>
 
   <%
 }
@@ -69,9 +67,7 @@ else if(Username!=null && Password!=null && Email!=null)
       if (updateQuery != 0) 
       {%>
         <br>
-        <table>
-          <tr><th>Data is inserted successfully in database.</th></tr>
-        </table>
+		<h3>Data is inserted successfully in database.</h3>
 
       <%
       }

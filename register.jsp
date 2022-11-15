@@ -35,7 +35,7 @@
 				</tbody>
 			</table>
 	      
-	      		<form method="post" action="register.jsp">
+	      		<form method="post" action="billing.jsp">
 				<input type="submit" value="Sign Up">
 	      		</form>
 		</div>

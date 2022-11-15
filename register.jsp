@@ -12,8 +12,8 @@
 	<body>
 		<nav>
 			<ul>
-				<li><a class="active" href="home.html">Login</a><li>
-				<li><a href="register.html">Sign Up</a><li>
+				<li><a class="active" href="home.jsp">Login</a><li>
+				<li><a href="register.jsp">Sign Up</a><li>
 			</ul>
 		</nav>
 		<div id = “login”>

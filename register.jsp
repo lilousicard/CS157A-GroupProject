@@ -12,11 +12,11 @@
 	<body>
 		<nav>
 			<ul>
-				<li><a class="active" href="home.jsp">Login</a><li>
+				<li><a class="active" href="login.jsp">Login</a><li>
 				<li><a href="register.jsp">Sign Up</a><li>
 			</ul>
 		</nav>
-		<div id = “login”>
+		<div id = “signup”>
 			<h1> Want to register early?</h1>
       <form>
 			<table>
@@ -33,53 +33,64 @@
 					</tr>
 				</tbody>
 			</table>
+	      
+	      		<form method="post" action="register.jsp">
+				<input type="submit" value="Sign Up">
+	      		</form>
 		</div>
 <%
-  String Username = request.getParameter("Username");
-  String Password = request.getParameter("Password");
-  String Email = request.getParameter("Email");
-  String connectionURL = "jdbc:mysql://localhost:3306/CS157A-Team3";
-  Connection connection = null;
-  PreparedStatement pstatement = null;
-  int updateQuery = 0;
-
-  if (Username==null || Password==null || Email==null||Username=="" || Password=="" || Email=="")
-  {%>
-    <br>
-	<h3>Entries are incorrect, try again</h3>
-
-  <%
-}
-
-else if(Username!=null && Password!=null && Email!=null)
+if("POST".equalsIgnoreCase(request.getMethod())
 {
-  if(Username!="" && Password!="" && Email!="")
-  {
-    try {
-      Class.forName("com.mysql.jdbc.Driver");
-      connection = DriverManager.getConnection(connectionURL,"appdb","password");
-      String queryString = "INSERT INTO Users (Username, Password,Email) VALUES (?,?,?)";
-      pstatement = connection.prepareStatement(queryString);
-      pstatement.setString(1, Username);
-      pstatement.setString(2, Password);
-      pstatement.setString(3, Email);
-      updateQuery = pstatement.executeUpdate();
-      if (updateQuery != 0) 
-      {%>
-        <br>
-		<h3>Data is inserted successfully in database.</h3>
+  	String Username = request.getParameter("Username");
+  	String Password = request.getParameter("Password");
+  	String Email = request.getParameter("Email");
+  	String connectionURL = "jdbc:mysql://localhost:3306/CS157A-Team3";
+  	Connection connection = null;
+  	PreparedStatement pstatement = null;
+  	int updateQuery = 0;
 
-      <%
-      }
-    }
-    catch (Exception ex){
-      out.println("Unable to connect to database.");
-    }finally {
-      // close all the connections.
-      pstatement.close();
-      connection.close();
-    }
-  }
+  	if (Username==null || Password==null || Email==null||Username=="" || Password=="" || Email=="")
+  	{%>
+    		<br>
+		<h3>Entries are incorrect, try again</h3>
+
+  	<%
+	}
+
+	else if(Username!=null && Password!=null && Email!=null)
+	{
+  		if(Username!="" && Password!="" && Email!="")
+ 		{
+    			try 
+			{
+      				Class.forName("com.mysql.jdbc.Driver");
+      				connection = DriverManager.getConnection(connectionURL,"appdb","password");
+      				String queryString = "INSERT INTO Users (Username, Password,Email) VALUES (?,?,?)";
+      				pstatement = connection.prepareStatement(queryString);
+      				pstatement.setString(1, Username);
+      				pstatement.setString(2, Password);
+      				pstatement.setString(3, Email);
+      				updateQuery = pstatement.executeUpdate();
+				
+     				if (updateQuery != 0) 
+      				{%>
+        			<br>
+					<h3>Data is inserted successfully in database.</h3>
+
+     				 <%
+      				}
+    			}
+    		catch (Exception ex)
+    		{
+      			out.println("Unable to connect to database.");
+    		}finally 
+		{
+     			 // close all the connections.
+      			pstatement.close();
+      			connection.close();
+    		}
+  		}
+	}
 }
 %>
 </FORM>

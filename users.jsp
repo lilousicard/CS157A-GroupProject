@@ -11,12 +11,12 @@
     try {
         java.sql.Connection con;
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS157A-Team3?autoReconnect=true&useSSL=false",user, password);
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS157A_Proj?autoReconnect=true&useSSL=false",user, password);
         Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
 
         StringBuilder builder = new StringBuilder();
-        builder.append("SELECT * FROM `CS157A-Team3`.favorite NATURAL JOIN movie WHERE user_id =  ");
+        builder.append("SELECT * FROM `CS157A_Proj`.favorite NATURAL JOIN movie WHERE user_id =  ");
         builder.append(userID);
         builder.append(";");
 

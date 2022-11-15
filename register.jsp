@@ -18,7 +18,7 @@
 			</ul>
 		</nav>
 		<div id = “signup”>
-			<h1> Want to register early?</h1>
+			<h1> Want to register</h1>
       <form>
 			<table>
 				<thead>
@@ -34,65 +34,53 @@
 					</tr>
 				</tbody>
 			</table>
-	      
+
 	      		<form method="post" action="billing.jsp">
 				<input type="submit" value="Sign Up">
 	      		</form>
 		</div>
 <%
-if("POST".equalsIgnoreCase(request.getMethod())
-{
+if("POST".equalsIgnoreCase(request.getMethod())){
   	String Username = request.getParameter("Username");
   	String Password = request.getParameter("Password");
   	String Email = request.getParameter("Email");
-  	String connectionURL = "jdbc:mysql://localhost:3306/CS157A-Team3";
+  	String connectionURL = "jdbc:mysql://localhost:3306/CS157A_Proj";
   	Connection connection = null;
   	PreparedStatement pstatement = null;
   	int updateQuery = 0;
 
-  	if (Username==null || Password==null || Email==null||Username=="" || Password=="" || Email=="")
-  	{%>
+  	if (Username==null || Password==null || Email==null||Username=="" || Password=="" || Email=="")	{
+			%>
     		<br>
-		<h3>Entries are incorrect, try again</h3>
-
+				<h3>Entries are incorrect, try again</h3>
   	<%
-	}
-
-	else if(Username!=null && Password!=null && Email!=null)
-	{
-  		if(Username!="" && Password!="" && Email!="")
- 		{
-    			try 
-			{
+	   }else if(Username!=null && Password!=null && Email!=null){
+  		if(Username!="" && Password!="" && Email!=""){
+    			try{
       				Class.forName("com.mysql.jdbc.Driver");
       				connection = DriverManager.getConnection(connectionURL,"appdb","password");
-      				String queryString = "INSERT INTO Users (Username, Password,Email) VALUES (?,?,?)";
+      				String queryString = "INSERT INTO account (Username, Password,Email) VALUES (?,?,?)";
       				pstatement = connection.prepareStatement(queryString);
       				pstatement.setString(1, Username);
       				pstatement.setString(2, Password);
       				pstatement.setString(3, Email);
       				updateQuery = pstatement.executeUpdate();
-				
-     				if (updateQuery != 0) 
-      				{%>
-        			<br>
-					<h3>Data is inserted successfully in database.</h3>
-
-     				 <%
-      				}
+     				if (updateQuery != 0){
+					    %>
+		        		<br>
+					    <h3>Data is inserted successfully in database.</h3>
+     				    <%
+      			    }
     			}
-    		catch (Exception ex)
-    		{
-      			out.println("Unable to connect to database.");
-    		}finally 
-		{
-     			 // close all the connections.
-      			pstatement.close();
-      			connection.close();
-    		}
-  		}
-	}
-}
+    			catch (Exception ex){
+      			    out.println("Unable to connect to database.");
+    			}
+			}
+
+      		pstatement.close();
+      		connection.close();
+    	}
+  	}
 %>
 </FORM>
 </body>

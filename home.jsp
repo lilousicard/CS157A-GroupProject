@@ -18,7 +18,6 @@
 
   <nav>
     <ul>
-      <li><a class="active" href="login.jsp">Home</a></li>
 			<li><a href="movies.jsp">Movies</a></li>
       <li><a href="saved.jsp">Saved</a></li>
 		</ul>

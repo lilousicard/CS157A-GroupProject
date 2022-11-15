@@ -6,6 +6,7 @@
 <html>
 	<head>
 		<title>Flick It Up!</title>
+		<link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png"
 		<link rel=“stylesheet” type=“text/css” href=“/css/register.css”>
 	</head>
 

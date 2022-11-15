@@ -36,11 +36,13 @@
 			</table>
 
 	      		<form method="post" action="billing.jsp">
-				<input type="submit" value="Sign Up">
+				<input type="submit" value="Sign Up" name="signUp">
 	      		</form>
 		</div>
 <%
-if("POST".equalsIgnoreCase(request.getMethod())){
+String sign = request.getParameter("signUp");
+
+if(sign != null && sign.equals("Sign Up")){
   	String Username = request.getParameter("Username");
   	String Password = request.getParameter("Password");
   	String Email = request.getParameter("Email");

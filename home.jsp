@@ -16,13 +16,25 @@
 </head>
 <body style="background-color:#b14e59;">
 
-
+  <nav>
+    <ul>
+      <li><a class="active" href="login.jsp">Home</a></li>
+			<li><a href="movies.jsp">Movies</a></li>
+      <li><a href="saved.jsp">Saved</a></li>
+		</ul>
+    <div class="searchbar">
+      <form action="search.jsp">
+        <input type="text" placeholder="Search Title, People, Genres..." name="search">
+        <button><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+	</nav>
 
 
 
   <%if (session.getAttribute("accountID")==null){%>
   <p><sub><a href="http://localhost:8080/project/login.jsp">Login</a></sub>
-  <sub><a href="http://localhost:8080/project/login.jsp">Sign Up</a></sub></p>
+  <sub><a href="http://localhost:8080/project/register.jsp">Sign Up</a></sub></p>
   <%}else{
       int accountID = (Integer)session.getAttribute("accountID");
     %>
@@ -49,7 +61,8 @@
       }
 
     }%>
-  <h1 style="text-align: center;"> WELCOME TO FLICK IT UP!</h1>
+  <h1> WELCOME TO FLICK IT UP!</h1>
+  <>
 
 
 </body>

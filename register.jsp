@@ -13,8 +13,8 @@
 	<body>
 		<nav>
 			<ul>
-				<li><a class="active" href="login.jsp">Login</a><li>
-				<li><a href="register.jsp">Sign Up</a><li>
+				<li><a class="active" href="login.jsp">Login</a></li>
+				<li><a href="register.jsp">Sign Up</a></li>
 			</ul>
 		</nav>
 		<div id = “signup”>

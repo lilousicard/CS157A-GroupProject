@@ -1,25 +1,97 @@
-.nav 
-{
-	background-color: #333;
-	overflow: hidden;
+body {
+    margin: 60px auto;
+    width: 70%;
+    background-image: url("https://img.freepik.com/free-vector/cinema-film-strips-blue-background_1017-23456.jpg?w=2000");
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-.nav a 
-{
-	float: right;
-	color: black;
-	text-align: center;
-	font-size: 18px;
+nav ul {
+    font-family:'Century Gothic', 'Arial', 'Sans-Serif';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+    font-size: 25px;
+    word-spacing: 2em;
 }
 
-.nav a:hover 
-{
-	background-color: blue;
-	color: white;
+a.nav{
+    color: Black;
 }
 
-.nav a.active 
-{
-	background-color: blue;
-	color: white;
+nav ul li {
+    text-decoration: none;
+    display: inline;
+    margin: center;
+    text-align: center;
+    color: Black;
+    
+}
+
+a {
+    color: Blue;
+}
+
+a:hover {
+    background-color: black;
+    color: white;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+h1 {
+    color: MidnightBlue;
+    font-size: 3em;
+    font-family: 'Century Gothic', 'Serif';
+    margin: center;
+    text-align: center;
+    
+}
+
+ul li{
+    list-style: none;
+    text-decoration: none;
+}
+
+h2 {
+    font-family: 'Century Gothic';
+    font-size: 100px;  
+    background-size: cover;
+    color: Aqua;
+}
+
+h3 {
+    font-family:'Papyrus';
+    font-size:75px;
+    color: Black;
+    text-align: Center;
+}
+
+div ul li {
+    font-size:50px;
+    color: Purple;
+}
+
+table{
+    border-spacing: 0 15px;
+}
+
+th {
+    font-family:"Comic Sans MS";
+    font-size: 40px;   
+    word-spacing: 2em;
+}
+
+td {
+    font-family:"Century Gothic";
+    font-size: 40px;
+    color: Black;
+}
+
+button {
+    font-size: 20px;
+    font-family: "Comic Sans MS";    
+    background-color: Gold;
+    border: 1px;
+    border-color: MidnightBlue;
 }

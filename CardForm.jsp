@@ -18,56 +18,67 @@
           <th>Card Number</th>
           <th>Name</th>
           <th>CVV</th>
-          <th>Expiration Date</th>
+          <th>expiration Date</th>
           <th>Zip Code</th>
         </thead>
         <tbody>
           <tr>
-            <td id=“CardNumber” name="CardNumber"><input type=“text”/></td>
-            <td id=“Name” name="Name"><input type=“text”/></td>
-            <td id=“CVV” name="CVV"><input type=“number”/></td>
-            <td id=“exp” name="ExpirationDate"><input type=“text”/></td>
-            <td id=“zip” name="ZipCode"><input type=“number”/></td>
-
-
+            <td><input type = "text" name = "CardNumber"></td>
+            <td><input type = "text" name = "Name"></td>
+            <td><input type = "text" name = "CVV"></td>
+            <td><input type = "text" name = "expDate"></td>
+            <td><input type = "text" name = "ZipCode"></td>
           </tr>
         </tbody>
+
       </table>
-      <form method="post" action="home.jsp">
-      <input type="submit" value="Register Card">
+
+       <input type="submit" value="Register Card" name="addCard">
       </form>
     </div>
     <%
-      if("POST".equalsIgnoreCase(request.getMethod())){
-
+      String sign = request.getParameter("addCard");
+      if(sign != null){
+          %>
+              <br>
+              <h3> pressed the button </h3>
+          <%
           String CardNumber = request.getParameter("CardNumber");
           String Name = request.getParameter("Name");
-          String EXP = request.getParameter("exp");
-          int CVV = Integer.parseInt(request.getParameter("CVV"));
-          int zip = Integer.parseInt(request.getParameter("zip"));
+          String expDate = request.getParameter("expdate");
+          String test1 = request.getParameter("CVV");
+          String test2 = request.getParameter("ZipCode");
+          int number = 0;
+          int zip = 0;
+          if (test1!=null && test2!=null){
+            number = Integer.parseInt(test1);
+            zip = Integer.parseInt(test2);
+          }
 
           String connectionURL = "jdbc:mysql://localhost:3306/CS157A_Proj";
           Connection connection = null;
           PreparedStatement pstatement = null;
           int updateQuery = 0;
 
-          if (CardNumber==null || Name==null || EXP==null|| CVV == 0|| zip == 0||CardNumber=="" || Name=="" || EXP=="")	{
+          if (CardNumber==null || Name==null || expDate==null|| number == 0|| zip == 0||CardNumber=="" || Name=="" || expDate=="")	{
             %>
               <br>
-              <h3>Entries are incorrect, try again</h3>
+              <h3>Entries are incorrect, try again </h3>
           <%
-          }else if(CardNumber!=null || Name!=null || EXP!=null|| CVV != 0|| zip != 0){
-            if(CardNumber!="" || Name!="" || EXP!=""){
+          }else {
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
                     connection = DriverManager.getConnection(connectionURL,"appdb","password");
-                    String queryString = "INSERT INTO payment  VALUES (?,?,?,?,?)";
+                    String queryOne = "DELETE FROM payment WHERE account_id = "+accountID+";";
+                    pstatement = connection.prepareStatement(queryOne);
+                    updateQuery = pstatement.executeUpdate();
+                    String queryString = "INSERT INTO payment  VALUES (?,?,?,?,?,?)";
                     pstatement = connection.prepareStatement(queryString);
                     pstatement.setInt(1, accountID);
                     pstatement.setString(2, Name);
                     pstatement.setString(3, CardNumber);
-                    pstatement.setInt(4,CVV);
-                    pstatement.setString(5,EXP);
+                    pstatement.setInt(4,number);
+                    pstatement.setString(5,expDate);
                     pstatement.setInt(6,zip);
                     updateQuery = pstatement.executeUpdate();
                   if (updateQuery != 0){
@@ -75,12 +86,16 @@
                       <br>
                     <h3>Data is inserted successfully in database.</h3>
                       <%
-                      }
+                  } else {
+                     %>
+                      <br>
+                    <h3>Data is not inserted in database.</h3>
+                      <%
+                  }
                 }
                 catch (Exception ex){
-                      out.println("Unable to connect to database.");
+                      out.println("SQLException caught: " + ex.getMessage());
                 }
-            }
 
                 pstatement.close();
                 connection.close();

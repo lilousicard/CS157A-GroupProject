@@ -7,7 +7,8 @@
 	<head>
 		<title>Flick It Up!</title>
 		<link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
-		<link rel=“stylesheet” type=“text/css” href=“/css/register.css”>
+		<style><%@include file="css/register.css"%></style>
+		
 	</head>
 
 	<body>
@@ -28,9 +29,9 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td id=“Username” name="Username"><input type=“text”/></td>
-						<td id=“Password” name="Password"><input type=“password”/></td>
-						<td id=“Email” name="Email"><input type=“email”/></td>
+						<td><input type = "text" name = "Username"></td>
+						<td><input type = "password" name = "Password"></td>
+						<td><input type = "text" name = "Email"></td>
 					</tr>
 				</tbody>
 			</table>
@@ -56,8 +57,7 @@ if(sign != null && sign.equals("Sign Up")){
     		<br>
 				<h3>Entries are incorrect, try again</h3>
   	<%
-	   }else if(Username!=null && Password!=null && Email!=null){
-  		if(Username!="" && Password!="" && Email!=""){
+	   }else {
     			try{
       				Class.forName("com.mysql.jdbc.Driver");
       				connection = DriverManager.getConnection(connectionURL,"appdb","password");
@@ -68,6 +68,12 @@ if(sign != null && sign.equals("Sign Up")){
       				pstatement.setString(3, Email);
       				updateQuery = pstatement.executeUpdate();
      				if (updateQuery != 0){
+     					String query = "SELECT * FROM `CS157A_Proj`.account WHERE username = \'"+ Username +"\';";
+                		Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                		ResultSet rs = stmt.executeQuery(query);
+                		rs.next();
+     					session.setAttribute("accountID",rs.getInt(1));
+                        response.sendRedirect("CardForm.jsp");
 					    %>
 		        		<br>
 					    <h3>Data is inserted successfully in database.</h3>
@@ -75,13 +81,13 @@ if(sign != null && sign.equals("Sign Up")){
       			    }
     			}
     			catch (Exception ex){
-      			    out.println("Unable to connect to database.");
+      			    out.println("SQLException caught: " + ex.getMessage());
     			}
+    			pstatement.close();
+      		    connection.close();
 			}
 
-      		pstatement.close();
-      		connection.close();
-    	}
+      		
   	}
 %>
 </FORM>

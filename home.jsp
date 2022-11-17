@@ -18,7 +18,7 @@
   <nav>
     <ul>
 			<li><a href="movies.jsp">Movies</a></li>
-      <li><a href="saved.jsp">Saved</a></li>
+      <li><a href="users.jsp">Saved</a></li>
 		</ul>
     <div class="searchbar">
       <form action="search.jsp">

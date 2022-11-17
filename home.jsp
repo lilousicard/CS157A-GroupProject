@@ -76,7 +76,12 @@
 
 
       StringBuilder builder = new StringBuilder();
-      builder.append("SELECT * FROM `CS157A_Proj`.movie");
+      builder.append("SELECT * FROM `CS157A_Proj`.movie ORDER BY ");
+      if(session.getAttribute("sort")==null){
+        builder.append("movie_id");
+      } else {
+        builder.append(session.getAttribute("sort"));
+      }
       builder.append(";");
 
       String query = builder.toString();
@@ -121,6 +126,26 @@
     }
 
   %>
+  <form method="post">
+    <label for="sort">Sort the display</label>
+  <select id="sort" name="sort">
+    <option value= title>Title</option>
+    <option value= genre>Genre</option>
+    <option value= year>Year</option>
+    <option value= duration>Duration</option>
+    <option value= rating >Rating</option>
+  </select>
+  <input type="submit" value="Sort" name="sortMovie">
+  </form>
+  <%
+    String sorting = request.getParameter("sortMovie");
+    if(sorting != null){
+      session.setAttribute("sort",request.getParameter("sort"));
+      response.sendRedirect("home.jsp");
+    }
+
+  %>
+
 
 
 

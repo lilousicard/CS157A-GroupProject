@@ -58,7 +58,8 @@
 
 		%>
 		<a href="http://localhost:8080/project/home.jsp">Go To Home Page</a><br>
-		<a href="http://localhost:8080/project/billing.jsp">Billing Info</a>
+		<a href="http://localhost:8080/project/billing.jsp">Billing Info</a><br>
+		<a href="http://localhost:8080/project/addUser.jsp">AddUser</a>
 
 
   </body>

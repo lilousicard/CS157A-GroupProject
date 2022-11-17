@@ -82,6 +82,8 @@
                     pstatement.setInt(6,zip);
                     updateQuery = pstatement.executeUpdate();
                   if (updateQuery != 0){
+                     response.sendRedirect("accountPage.jsp");
+
                     %>
                       <br>
                     <h3>Data is inserted successfully in database.</h3>

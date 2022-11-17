@@ -36,13 +36,26 @@
             <h3><%=rating%><h3><br>
             <h3><%=duration%><h3><br>
             <h3><%=language%><h3><br>
-            <%=description%>
+            <%=description%><br>
 
             <%
+
+
+            query = "SELECT * FROM CS157A_Proj.review WHERE movie_id = "+movieID+";";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+              out.println("User ID = "+rs.getInt(1)+" rating = "+ rs.getInt(3)+ " comment = "+rs.getString(4));
+              %>
+              <br>
+              <%
+            }
+
           }catch(SQLException e) {
               out.println("SQLException caught: " + e.getMessage());
           }
         }
     %>
+    <br>
+    <a href="http://localhost:8080/project/home.jsp">Go To Home Page</a><br>
   </body>
 </html>

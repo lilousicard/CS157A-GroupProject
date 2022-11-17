@@ -3,13 +3,15 @@
 
 <head>
 
-  <style>
-   input[type=submit] {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-   }
-  </style>
+<style>
+input[type=submit] {
+ position: absolute;
+ top: 10px;
+ right: 10px;
+}
+</style>
+<style><%@include file="css/register.css"%></style>
+
 
   <title>Flick It Up!</title>
 
@@ -51,6 +53,9 @@
 
         <%
       }
+
+
+
       String sign = request.getParameter("logOut");
       if(sign!=null){
         session.removeAttribute("accountID");
@@ -61,7 +66,38 @@
 
     }%>
   <h1> WELCOME TO FLICK IT UP!</h1>
-  <>
+  <%
+  String user = "appdb";
+  String password = "password";
+  try {
+      java.sql.Connection con;
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS157A_Proj?autoReconnect=true&useSSL=false",user, password);
+      Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+
+      StringBuilder builder = new StringBuilder();
+      builder.append("SELECT * FROM `CS157A_Proj`.movie");
+      builder.append(";");
+
+      String query = builder.toString();
+
+      ResultSet rs = stmt.executeQuery(query);
+
+      while(rs.next()){
+        out.println(rs.getString(2)+ "<br/><br/>");
+      }
+
+      rs.close();
+      stmt.close();
+      con.close();
+  } catch(SQLException e) {
+      out.println(e);
+  }
+
+
+  %>
+
 
 
 </body>

@@ -12,99 +12,76 @@
       }else{
         int accountID = (Integer)session.getAttribute("accountID");
     %>
-    <form>
-      <table>
-        <thead>
-          <th>Card Number</th>
-          <th>Name</th>
-          <th>CVV</th>
-          <th>expiration Date</th>
-          <th>Zip Code</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type = "text" name = "CardNumber"></td>
-            <td><input type = "text" name = "Name"></td>
-            <td><input type = "text" name = "CVV"></td>
-            <td><input type = "text" name = "expDate"></td>
-            <td><input type = "text" name = "ZipCode"></td>
-          </tr>
-        </tbody>
-
-      </table>
-
-       <input type="submit" value="Register Card" name="addCard">
+    <div>
+      <form>
+        <table>
+          <thead>
+            <th>Card Number</th>
+            <th>Name</th>
+            <th>CVV</th>
+            <th>Expiration Date</th>
+            <th>Zip Code</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type = "text" name = "cardNum"></td>
+              <td><input type = "text" name = "name"></td>
+              <td><input type = "text" name = "code"></td>
+              <td><input type = "text" name = "date"></td>
+              <td><input type = "text" name = "zip"></td>
+            </tr>
+          </tbody>
+        </table>
+        <input type="submit" value="Add Card" name="add">
       </form>
     </div>
     <%
-      String sign = request.getParameter("addCard");
-      if(sign != null){
-          %>
-              <br>
-              <h3> pressed the button </h3>
-          <%
-          String CardNumber = request.getParameter("CardNumber");
-          String Name = request.getParameter("Name");
-          String expDate = request.getParameter("expdate");
-          String test1 = request.getParameter("CVV");
-          String test2 = request.getParameter("ZipCode");
-          int number = 0;
-          int zip = 0;
-          if (test1!=null && test2!=null){
-            number = Integer.parseInt(test1);
-            zip = Integer.parseInt(test2);
-          }
+    String user = "appdb";
+    String password = "password";
+    java.sql.Connection con;
+    PreparedStatement pstatement = null;
 
-          String connectionURL = "jdbc:mysql://localhost:3306/CS157A_Proj";
-          Connection connection = null;
-          PreparedStatement pstatement = null;
-          int updateQuery = 0;
+    String sign = request.getParameter("add");
+    if(sign!=null){
+      int codeI=0;
+      int zipI=0;
+      int updateQuery = 0;
+      String cardNumber = request.getParameter("cardNum");
+      String name = request.getParameter("name");
+      String cvv = request.getParameter("code");
+      String date = request.getParameter("date");
+      String zip = request.getParameter("zip");
 
-          if (CardNumber==null || Name==null || expDate==null|| number == 0|| zip == 0||CardNumber=="" || Name=="" || expDate=="")	{
-            %>
-              <br>
-              <h3>Entries are incorrect, try again </h3>
-          <%
-          }else {
-                try{
-                    Class.forName("com.mysql.jdbc.Driver");
-                    connection = DriverManager.getConnection(connectionURL,"appdb","password");
-                    String queryOne = "DELETE FROM payment WHERE account_id = "+accountID+";";
-                    pstatement = connection.prepareStatement(queryOne);
-                    updateQuery = pstatement.executeUpdate();
-                    String queryString = "INSERT INTO payment  VALUES (?,?,?,?,?,?)";
-                    pstatement = connection.prepareStatement(queryString);
-                    pstatement.setInt(1, accountID);
-                    pstatement.setString(2, Name);
-                    pstatement.setString(3, CardNumber);
-                    pstatement.setInt(4,number);
-                    pstatement.setString(5,expDate);
-                    pstatement.setInt(6,zip);
-                    updateQuery = pstatement.executeUpdate();
-                  if (updateQuery != 0){
-                     response.sendRedirect("accountPage.jsp");
-
-                    %>
-                      <br>
-                    <h3>Data is inserted successfully in database.</h3>
-                      <%
-                  } else {
-                     %>
-                      <br>
-                    <h3>Data is not inserted in database.</h3>
-                      <%
-                  }
-                }
-                catch (Exception ex){
-                      out.println("SQLException caught: " + ex.getMessage());
-                }
-
-                pstatement.close();
-                connection.close();
-            }
-        }
+      if (cvv != null && zip != null){
+        codeI = Integer.parseInt(cvv);
+        zipI = Integer.parseInt(zip);
       }
+
+      try {
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS157A_Proj?autoReconnect=true&useSSL=false",user, password);
+        String queryString = "INSERT INTO payment VALUES (?,?,?,?,?,?)";
+        String deleteQuery = "DELETE FROM payment WHERE account_id = "+accountID;
+        Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        stmt.executeUpdate(deleteQuery);
+        pstatement = con.prepareStatement(queryString);
+        pstatement.setInt(1,accountID);
+        pstatement.setString(2, name);
+        pstatement.setString(3, cardNumber);
+        pstatement.setInt(4,codeI);
+        pstatement.setString(5,date);
+        pstatement.setInt(6,zipI);
+        updateQuery = pstatement.executeUpdate();
+        if (updateQuery != 0){
+          response.sendRedirect("addUser.jsp");
+        } else {
+          out.println("error processing the form");
+        }
+
+      } catch(SQLException e) {
+          out.println("SQLException caught: " + e.getMessage());
+      }
+  }
+}
+
     %>
-    </form>
-  </body>
-</html>

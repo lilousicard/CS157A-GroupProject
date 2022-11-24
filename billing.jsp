@@ -44,6 +44,7 @@
   }
   %>
   <a href="http://localhost:8080/project/CardForm.jsp">Change Billing information</a><br>
+  <a href="http://localhost:8080/project/deleteForm.jsp">Delete Your Account</a><br>
 
   <%
 

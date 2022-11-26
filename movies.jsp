@@ -50,6 +50,15 @@
               <%
             }
 
+		query = "SELECT * FROM CS157A_Proj.awards WHERE movie_id = "+movieID+";";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+              out.println("Award: "+rs.getString(2)+" "+rs.getInt(4)+" by "+ rs.getString(3));
+              %>
+              <br>
+              <%
+            }
+
           }catch(SQLException e) {
               out.println("SQLException caught: " + e.getMessage());
           }

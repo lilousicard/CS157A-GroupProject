@@ -33,31 +33,59 @@
             <h2><%= year%></h2>
             <img src= <%=imagePath%> alt="poster"><br>
             <h2><%= genre%></h2><br>
-            <h3><%=rating%><h3><br>
-            <h3><%=duration%><h3><br>
-            <h3><%=language%><h3><br>
+            <h3><%=rating%></h3><br>
+            <h3><%=duration%></h3><br>
+            <h3><%=language%></h3><br>
+		<h3><b>Description</b></h3>
             <%=description%><br>
-
+		<br>
             <%
 
 
             query = "SELECT * FROM CS157A_Proj.review WHERE movie_id = "+movieID+";";
             rs = stmt.executeQuery(query);
+            %><h3><b>Review</b></h3><%
             while(rs.next()){
-              out.println("User ID = "+rs.getInt(1)+" rating = "+ rs.getInt(3)+ " comment = "+rs.getString(4));
+              out.println("User ID = "+rs.getInt(1)+", rating = "+ rs.getInt(3)+ ", comment = "+rs.getString(4));
+            %>
+            <br>
+            <%
+            }
+
+            %><br><%
+            query = "SELECT * FROM CS157A_Proj.awards WHERE movie_id = "+movieID+";";
+            rs = stmt.executeQuery(query);
+            %><h3><b>Awards</b></h3><%
+		while(rs.next()){
+              out.println(rs.getString(2)+" "+rs.getInt(4)+" by "+ rs.getString(3));
               %>
               <br>
               <%
             }
 
-		query = "SELECT * FROM CS157A_Proj.awards WHERE movie_id = "+movieID+";";
+            %><br><%
+            query = "SELECT * FROM CS157A_Proj.directors Where director_id in (Select director_id From CS157A_Proj.directed WHERE movie_id = "+movieID+");";
             rs = stmt.executeQuery(query);
+            %><h3><b>Directorss</b></h3><%
             while(rs.next()){
-              out.println("Award: "+rs.getString(2)+" "+rs.getInt(4)+" by "+ rs.getString(3));
+              out.println(rs.getString(2));
               %>
               <br>
               <%
             }
+
+            %><br><%
+            query = "SELECT * FROM CS157A_Proj.actors Where actor_id in (Select actor_id From CS157A_Proj.`star-in` WHERE movie_id = "+movieID+");";
+            rs = stmt.executeQuery(query);
+            %><h3><b>Casts</b></h3><%
+            while(rs.next()){
+              out.println(rs.getString(2));
+              %>
+              <br>
+              <%
+            }
+
+
 
           }catch(SQLException e) {
               out.println("SQLException caught: " + e.getMessage());

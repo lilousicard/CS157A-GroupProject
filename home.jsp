@@ -18,7 +18,7 @@
   <nav>
     <ul>
 			<li><a href="movies.jsp">Movies</a></li>
-      <li><a href="users.jsp">Saved</a></li>
+      <li><a href="favorite.jsp">Saved</a></li>
 		</ul>
     <div class="searchbar">
       <form action="search.jsp">
@@ -92,8 +92,7 @@
       while(rs.next()){
 	String imagePath = "http://localhost:8080/project/image/"+rs.getString(9);
 	  %>
-	<img src= <%=imagePath%> alt="poster" style="width:200px;height:300px;">
-	<br>
+	<img src= <%=imagePath%> alt="poster" style="width:200px;height:300px;"><br>
 	  <%
         out.println(rs.getString(2)+ "<br/><br/>");
         str[index]=rs.getString(2);

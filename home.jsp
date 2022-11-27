@@ -88,7 +88,13 @@
 
       ResultSet rs = stmt.executeQuery(query);
       int index = 0;
+	
       while(rs.next()){
+	String imagePath = "http://localhost:8080/project/image/"+rs.getString(9);
+	  %>
+	<img src= <%=imagePath%> alt="poster" style="width:200px;height:300px;">
+	<br>
+	  <%
         out.println(rs.getString(2)+ "<br/><br/>");
         str[index]=rs.getString(2);
         id[index] = rs.getInt(1);

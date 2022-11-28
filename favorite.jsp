@@ -5,8 +5,8 @@
 
   <h3> Favorite Movies</h3>
 
-  
-  <%if (session.getAttribute("accountID")==null){%>
+
+  <%if (session.getAttribute("accountID")==null || session.getAttribute("userID")==null){%>
   <h1>Error, Please try again Later</h1>
 
   <% }else{
@@ -21,7 +21,7 @@
     Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
 
-   
+
     String query = ("SELECT * FROM CS157A_Proj.movie Where movie_id in (Select movie_id From CS157A_Proj.favorite WHERE user_id = "+userID+");");
     ResultSet rs = stmt.executeQuery(query);
     while(rs.next()){
@@ -30,7 +30,7 @@
         out.println(rs.getString(2)+ "<br/><br/>");
     }
 
-    
+
     rs.close();
     stmt.close();
     con.close();

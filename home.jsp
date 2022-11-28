@@ -57,6 +57,7 @@
       if(sign!=null){
         session.removeAttribute("accountID");
         session.removeAttribute("userID");
+        session.removeAttribute("isAdmin");
         response.sendRedirect("home.jsp");
 
       }
@@ -88,7 +89,7 @@
 
       ResultSet rs = stmt.executeQuery(query);
       int index = 0;
-	
+
       while(rs.next()){
 	String imagePath = "http://localhost:8080/project/image/"+rs.getString(9);
 	  %>

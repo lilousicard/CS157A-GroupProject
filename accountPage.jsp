@@ -11,6 +11,7 @@
    int accountID = (Integer)session.getAttribute("accountID");
    //out.println(accountID);
 
+
    StringBuilder builder = new StringBuilder();
 	 String [] str = {" "," "," "," "};
 	 int [] id = {-1,-1,-1,-1};
@@ -31,6 +32,10 @@
        	//out.println(rs.getString(2)+ "<br/><br/>");
 				str[i]=rs.getString(2);
 				id[i] = rs.getInt(1);
+				String type = rs.getString(3);
+				if (type == "admin"){
+					session.setAttribute("isAdmin",true);
+				}
 				i++;
 		 	}
      }catch(SQLException e) {

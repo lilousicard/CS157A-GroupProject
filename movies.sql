@@ -16,13 +16,13 @@ CREATE TABLE `movie` (
  ) ;
  
  INSERT INTO `movie`(`title`,`genre`,`year`,`duration`,`rating`,`language`,`description`,`imgpath`) VALUES 
-('Rampage', 'action', '2018', '107','4.1','English', 'It is based on the video game series of the same name by Midway Games,', 'rampage.jpg'),
-('Black Panther', 'fiction', '2018', '134','4.1','English', 'An American superhero film based on the Marvel Comics character of the same name.', 'blackpanther.jpg'),
-('Spiderman Homecoming', 'action', '2017', '133','4.3','English', 'An American superhero film based on the Marvel Comics character Spider-Man.', 'spider-man-homecoming.jpg'),
-('Jumanji: Welcome to the Jungle', 'adventure', '2017', '119','3.8','English', 'The story focuses on a group of teenagers who come across Jumanji, now transformed into a video game twenty-two years after the events of the 1995 film. They find themselves trapped in the game as a set of adult avatars, seeking to complete a quest alongside another player who has been trapped since 1996.', 'jumanji2017.jpg'),
+('Rampage', 'action', '2018', '107','4.5','English', 'It is based on the video game series of the same name by Midway Games,', 'rampage.jpg'),
+('Black Panther', 'fiction', '2018', '134','4.0','English', 'An American superhero film based on the Marvel Comics character of the same name.', 'blackpanther.jpg'),
+('Spiderman Homecoming', 'action', '2017', '133','3.3','English', 'An American superhero film based on the Marvel Comics character Spider-Man.', 'spider-man-homecoming.jpg'),
+('Jumanji: Welcome to the Jungle', 'adventure', '2017', '119','3.0','English', 'The story focuses on a group of teenagers who come across Jumanji, now transformed into a video game twenty-two years after the events of the 1995 film. They find themselves trapped in the game as a set of adult avatars, seeking to complete a quest alongside another player who has been trapped since 1996.', 'jumanji2017.jpg'),
 ('The conjuring', 'horror', '2013', '112','4.0','English', 'ghost house', 'Conjuring.jpg'),
-('The conjuring 2', 'horror', '2015', '115','4.1','English', 'cursed family', 'conjuring2.jpg'),
-('Avengers: infinity war', 'fiction', '2018', '149','4.4','English', ' The Avengers and the Guardians of the Galaxy attempt to prevent Thanos from collecting the six all-powerful Infinity Stones as part of his quest to kill half of all life in the universe.','infinitywar.jpg'),
+('The conjuring 2', 'horror', '2015', '115','5.0','English', 'cursed family', 'conjuring2.jpg'),
+('Avengers: infinity war', 'fiction', '2018', '149','3.0','English', ' The Avengers and the Guardians of the Galaxy attempt to prevent Thanos from collecting the six all-powerful Infinity Stones as part of his quest to kill half of all life in the universe.','infinitywar.jpg'),
 ('Black Adam', 'action', '2022', '124','4.4','English', 'An American superhero film based on the DC Comics character of the same name.','blackadam.jpg'),
 ('Halloween Ends', 'horror', '2022', '111','4.0','English', 'An American slasher film that is the sequel to Halloween Kills (2021), the thirteenth installment in the Halloween franchise, and the final film in the trilogy of sequels that started with the 2018 film, which directly follows the 1978 film.','halloweenends.jpg'),
 ('The Stranger', 'drama', '2022', '116','4.4','English', "Based on the non-fiction book The Sting: The Undercover Operation That Caught Daniel Morcombe's Killer by Kate Kyriacou, and inspired by the murder investigation of Daniel Morcombe,[1] the film follows an investigation of a child abduction case, with an undercover police officer (Edgerton) in a sting operation tasked with getting close to and forming a friendship with the prime suspect (Harris).",'thestranger.jpg');
@@ -301,4 +301,11 @@ CREATE TABLE `review` (
 (4,3, 4,'good'),
 (9,3, 3,'boring');
 
- 
+INSERT INTO CS157A_Proj.account(username,password,email) VALUE ('Admin','Admin','sjsu@sjsu.edu');
+INSERT INTO CS157A_Proj.user (name, user_type, account_id) VALUE ('Admin','admin','11');
+UPDATE movie
+SET movie.rating = (SELECT ROUND(AVG(review.rating),1) 
+    FROM  review
+    WHERE review.movie_id = 7
+    GROUP BY review.movie_id)
+WHERE movie.movie_id = 7;

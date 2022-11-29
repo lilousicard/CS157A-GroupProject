@@ -75,7 +75,14 @@
 				response.sendRedirect("home.jsp");
 			}
 
+			if (session.getAttribute("isAdmin")!= null){
+				%>
+			<li><a href="http://localhost:8080/project/adminReview.jsp">Review the movie Review</a></li>
+			<%
+		}
+
 		%>
+
 	  <footer>
 		<ul>
 			<li><a href="http://localhost:8080/project/home.jsp">Go To Home Page</a></li>

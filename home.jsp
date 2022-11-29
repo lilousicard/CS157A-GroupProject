@@ -54,6 +54,8 @@ body {
   <p><sub><a href="http://localhost:8080/project/login.jsp">Login</a></sub>
   <sub><a href="http://localhost:8080/project/register.jsp">Sign Up</a></sub></p>
   <%}else{
+
+
       int accountID = (Integer)session.getAttribute("accountID");
     %>
       <form method="post">

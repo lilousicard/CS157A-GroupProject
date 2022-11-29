@@ -5,3 +5,46 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+
+nav ul {
+    font-family:'Century Gothic', 'Arial', 'Sans-Serif';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+    font-size: 25px;
+    word-spacing: 2em;
+}
+
+a.nav{
+    color: Black;
+    text-decoration: none;
+}
+
+nav 
+{
+  background-color: rgba(255,255,240, 0.5);
+  position: fixed;
+}
+
+nav ul li {
+    text-decoration: none;
+    display: inline;
+    margin: center;
+    text-align: center;
+    color: Black;
+    
+}
+
+a {
+    color: Blue;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: black;
+    color: white;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+

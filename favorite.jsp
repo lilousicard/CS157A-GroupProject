@@ -3,6 +3,20 @@
 
 <body>
 
+	<nav>
+	<ul>
+		<li><a href="home.jsp">Home</a></li>
+		<li><a href="movies.jsp">Movies</a></li>
+      		<li><a href="favorite.jsp">Saved</a></li>
+	</ul>
+    <div class="searchbar">
+      <form action="search.jsp">
+        <input type="text" placeholder="Search Title, People, Genres..." name="search">
+        <button><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+	</nav>
+	
   <h3> Favorite Movies</h3>
 
 
@@ -41,10 +55,4 @@
   }
 
   %>
-
-
-
-
-<a href="http://localhost:8080/project/home.jsp">Back to Home Page</a><br>
-
 </body>

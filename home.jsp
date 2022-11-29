@@ -16,10 +16,11 @@
 <body style="background-color:#b14e59;">
 
   <nav>
-    <ul>
-			<li><a href="movies.jsp">Movies</a></li>
-      <li><a href="favorite.jsp">Saved</a></li>
-		</ul>
+	<ul>
+		<li><a href="home.jsp">Home</a></li>
+		<li><a href="movies.jsp">Movies</a></li>
+      		<li><a href="favorite.jsp">Saved</a></li>
+	</ul>
     <div class="searchbar">
       <form action="search.jsp">
         <input type="text" placeholder="Search Title, People, Genres..." name="search">

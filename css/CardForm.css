@@ -1,1 +1,40 @@
 
+body {
+    margin: 60px auto;
+    width: 70%;
+    background-image: url("https://img.freepik.com/free-vector/cinema-film-strips-blue-background_1017-23456.jpg?w=2000");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    color: MidnightBlue;
+    font-size: 3em;
+    font-family: 'Century Gothic', 'Serif';
+    margin: center;
+    text-align: center;
+}
+
+th {
+    font-family:"Comic Sans MS";
+    font-size: 40px;   
+    word-spacing: 5em;
+}
+
+nav 
+{
+  background-color: rgba(255,255,240, 0.5);
+ 
+}
+
+a.nav{
+    color: Black;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: black;
+    color: white;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}

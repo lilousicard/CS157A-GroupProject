@@ -43,7 +43,6 @@ body {
 
 <div class="topnav">
   <a class="active" href="home.jsp">Home</a>
-  <a href="movies.jsp">Movies</a>
   <a href="favorite.jsp">Favorites</a>
   <a href="http://localhost:8080/project/accountPage.jsp">Account</a>
 </div>
@@ -65,6 +64,7 @@ body {
   <%
       if (session.getAttribute("userID")==null){%>
         <p><sub> You did not pick a user!</sub></p>
+	  <p><sub> Please go to <a href="http://localhost:8080/project/accountPage.jsp"> Account</a> to pick one!</sub></p>
       <%} else {
         int userID = (Integer)session.getAttribute("userID");
         %>

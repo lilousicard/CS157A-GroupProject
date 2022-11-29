@@ -16,7 +16,7 @@
   	<a href="home.jsp">Home</a>
 
   <%if (session.getAttribute("accountID")==null || session.getAttribute("userID")==null){%>
-  <h1>Error, Please try again Later</h1>
+  <h2>Please check if you are a valid user then try again later!</h2>
 
   <% }else{
     int accountID = (Integer)session.getAttribute("accountID");

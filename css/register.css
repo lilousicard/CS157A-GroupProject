@@ -17,6 +17,7 @@ nav ul {
 
 a.nav{
     color: Black;
+    text-decoration: none;
 }
 
 nav ul li {
@@ -30,6 +31,7 @@ nav ul li {
 
 a {
     color: Blue;
+    text-decoration: none;
 }
 
 a:hover {
@@ -67,25 +69,21 @@ h3 {
     text-align: Center;
 }
 
-div ul li {
-    font-size:50px;
-    color: Purple;
-}
-
 table{
-    border-spacing: 0 15px;
+    border-spacing: 5 15px;
 }
 
 th {
     font-family:"Comic Sans MS";
     font-size: 40px;   
-    word-spacing: 2em;
+    word-spacing: 5em;
 }
 
 td {
     font-family:"Century Gothic";
     font-size: 40px;
     color: Black;
+    word-spacing: 2em;
 }
 
 button {

@@ -4,6 +4,19 @@
     <title>Flick It UP</title>
   </head>
   <body>
+    <nav>
+	<ul>
+		<li><a href="home.jsp">Home</a></li>
+		<li><a href="movies.jsp">Movies</a></li>
+      		<li><a href="favorite.jsp">Saved</a></li>
+	</ul>
+    <div class="searchbar">
+      <form action="search.jsp">
+        <input type="text" placeholder="Search Title, People, Genres..." name="search">
+        <button><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+	</nav>
     <%
 
       if (session.getAttribute("accountID")==null){

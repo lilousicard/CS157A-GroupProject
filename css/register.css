@@ -20,6 +20,12 @@ a.nav{
     text-decoration: none;
 }
 
+nav 
+{
+  background-color: rgba(255,255,240, 0.5);
+  position: fixed;
+}
+
 nav ul li {
     text-decoration: none;
     display: inline;
@@ -55,13 +61,6 @@ ul li{
     text-decoration: none;
 }
 
-h2 {
-    font-family: 'Century Gothic';
-    font-size: 100px;  
-    background-size: cover;
-    color: Aqua;
-}
-
 h3 {
     font-family:'Papyrus';
     font-size:75px;
@@ -77,19 +76,4 @@ th {
     font-family:"Comic Sans MS";
     font-size: 40px;   
     word-spacing: 5em;
-}
-
-td {
-    font-family:"Century Gothic";
-    font-size: 40px;
-    color: Black;
-    word-spacing: 2em;
-}
-
-button {
-    font-size: 20px;
-    font-family: "Comic Sans MS";    
-    background-color: Gold;
-    border: 1px;
-    border-color: MidnightBlue;
 }

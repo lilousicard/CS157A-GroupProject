@@ -107,6 +107,5 @@
         }
     %>
     <br>
-    <a href="http://localhost:8080/project/home.jsp">Go To Home Page</a><br>
   </body>
 </html>

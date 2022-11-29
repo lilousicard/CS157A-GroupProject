@@ -1,7 +1,20 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="java.string.*"%>
 <html>
+<head>
+
+<style>
+
+</style>
+
+<style><%@include file="css/home.css"%></style>
+
+
+  <title>Flick It Up!</title>
+
+</head>
   <body>
+    <a href="home.jsp">Home</a>
     <%
 
       if (session.getAttribute("movieID")==null){
@@ -46,11 +59,11 @@
             %>
             <h1><%= title %></h1>
             <h2><%= year%></h2>
-            <img src= <%=imagePath%> alt="poster"><br>
-            <h2><%= genre%></h2><br>
-            <h3><%=rating%></h3><br>
-            <h3><%=duration%></h3><br>
-            <h3><%=language%></h3><br>
+            <img src= <%=imagePath%> alt="poster" style="width:400px;height:600px;"><br>
+            <h4><b>Genre: </b><%= genre%></h4>
+            <h4><b>Rating: </b><%=rating%></h4>
+            <h4><b>Duration: </b><%=duration%></h4>
+            <h4><b>Language: </b><%=language%></h4> <br>
 		<h3><b>Description</b></h3>
             <%=description%><br>
 		<br>
@@ -62,9 +75,7 @@
             %><h3><b>Review</b></h3><%
             while(rs.next()){
               out.println("User ID = "+rs.getInt(1)+", rating = "+ rs.getInt(3)+ ", comment = "+rs.getString(4));
-            %>
-            <br>
-            <%
+            %><br> <%
             }
 
             %><br><%
@@ -73,20 +84,16 @@
             %><h3><b>Awards</b></h3><%
 		while(rs.next()){
               out.println(rs.getString(2)+" "+rs.getInt(4)+" by "+ rs.getString(3));
-              %>
-              <br>
-              <%
+              %> <br><%
             }
 
             %><br><%
             query = "SELECT * FROM CS157A_Proj.directors Where director_id in (Select director_id From CS157A_Proj.directed WHERE movie_id = "+movieID+");";
             rs = stmt.executeQuery(query);
-            %><h3><b>Directorss</b></h3><%
+            %><h3><b>Directors</b></h3><%
             while(rs.next()){
               out.println(rs.getString(2));
-              %>
-              <br>
-              <%
+              %><br><%
             }
 
             %><br><%
@@ -95,9 +102,7 @@
             %><h3><b>Casts</b></h3><%
             while(rs.next()){
               out.println(rs.getString(2));
-              %>
-              <br>
-              <%
+              %><br><%
             }
 
 
@@ -107,7 +112,7 @@
           }
         }
     %>
-    <br>
-    <a href="http://localhost:8080/project/home.jsp">Go To Home Page</a><br>
+    <br><br><br><br>
+    <h2><a href="http://localhost:8080/project/home.jsp">Back To Home Page</a><h2><br>
   </body>
 </html>

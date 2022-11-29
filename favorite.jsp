@@ -1,24 +1,19 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.*" %>
+<head>
 
+<style>
+
+</style>
+
+<style><%@include file="css/home.css"%></style>
+
+
+  <title>Flick It Up!</title>
+
+</head>
 <body>
-
-	<nav>
-	<ul>
-		<li><a href="home.jsp">Home</a></li>
-		<li><a href="movies.jsp">Movies</a></li>
-      		<li><a href="favorite.jsp">Saved</a></li>
-	</ul>
-    <div class="searchbar">
-      <form action="search.jsp">
-        <input type="text" placeholder="Search Title, People, Genres..." name="search">
-        <button><i class="fa fa-search"></i></button>
-      </form>
-    </div>
-	</nav>
-	
-  <h3> Favorite Movies</h3>
-
+  	<a href="home.jsp">Home</a>
 
   <%if (session.getAttribute("accountID")==null || session.getAttribute("userID")==null){%>
   <h1>Error, Please try again Later</h1>
@@ -35,9 +30,15 @@
     Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
 
-
-    String query = ("SELECT * FROM CS157A_Proj.movie Where movie_id in (Select movie_id From CS157A_Proj.favorite WHERE user_id = "+userID+");");
+    String query = ("SELECT * FROM CS157A_Proj.user Where user_id = "+userID+";");
     ResultSet rs = stmt.executeQuery(query);
+    rs.next();
+    String name = rs.getString(2);
+    %><h1><%= name%><b>'s Favorite Movies</b></h1><%
+    
+
+    query = ("SELECT * FROM CS157A_Proj.movie Where movie_id in (Select movie_id From CS157A_Proj.favorite WHERE user_id = "+userID+");");
+    rs = stmt.executeQuery(query);
     while(rs.next()){
 	  String imagePath = "http://localhost:8080/project/image/"+rs.getString(9);
 	  %><img src= <%=imagePath%> alt="poster" style="width:200px;height:300px;"><br><%

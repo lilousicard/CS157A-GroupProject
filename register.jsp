@@ -7,6 +7,7 @@
 	<head>
 		<title>Flick It Up!</title>
 		<link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
+		<link href="css/hover.css" rel="stylesheet" media="all">
 		<style><%@include file="css/register.css"%></style>
 		
 	</head>
@@ -14,8 +15,8 @@
 	<body>
 		<nav>
 			<ul>
-				<li><a class="active" href="login.jsp">Login</a></li>
-				<li><a href="register.jsp">Sign Up</a></li>
+				<li><a class="nav" href="login.jsp">Login</a></li>
+				<li><a class="nav" href="register.jsp">Sign Up</a></li>
 			</ul>
 		</nav>
 		<div id = “signup”>

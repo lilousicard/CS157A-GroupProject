@@ -68,8 +68,9 @@ h3 {
     text-align: Center;
 }
 
-table{
-    border-spacing: 5 15px;
+table {
+    border-collapse: separate;
+    border-spacing: 20px 0;
 }
 
 th {

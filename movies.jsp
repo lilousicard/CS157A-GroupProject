@@ -2,27 +2,28 @@
 <%@ page import="java.string.*"%>
 <html>
   <body>
-	  <nav>
-	<ul>
-		<li><a href="home.jsp">Home</a></li>
-		<li><a href="movies.jsp">Movies</a></li>
-      		<li><a href="favorite.jsp">Saved</a></li>
-	</ul>
-    <div class="searchbar">
-      <form action="search.jsp">
-        <input type="text" placeholder="Search Title, People, Genres..." name="search">
-        <button><i class="fa fa-search"></i></button>
-      </form>
-    </div>
-	</nav>
-	  
     <%
-      //session.setAttribute("movieID",3);
+
       if (session.getAttribute("movieID")==null){
         %>
           <h1>ERROR, No movie was selected</h1>
         <%
       }else{
+
+        if((session.getAttribute("isAdmin")).equals("admin")){
+          %>
+            <form method="post">
+              <input type="submit" value="Edit page" name = "edit">
+            </form>
+          <%
+          String input = request.getParameter("edit");
+          if (input != null){
+            response.sendRedirect("updateMovie.jsp");
+          }
+
+        }
+
+
         int movieID = (Integer)session.getAttribute("movieID");
         String user = "appdb";
         String password = "password";
@@ -107,5 +108,6 @@
         }
     %>
     <br>
+    <a href="http://localhost:8080/project/home.jsp">Go To Home Page</a><br>
   </body>
 </html>

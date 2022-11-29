@@ -8,9 +8,9 @@
 		<link rel="stylesheet" type="text/css" href="/css/account.css">
 	</head>
   <body>
-  <%
-  
-  <nav>
+
+
+
 	<ul>
 		<li><a href="home.jsp">Home</a></li>
 		<li><a href="movies.jsp">Movies</a></li>
@@ -22,8 +22,8 @@
         <button><i class="fa fa-search"></i></button>
       </form>
     </div>
-	</nav>
-	
+
+	<%
    int accountID = (Integer)session.getAttribute("accountID");
    //out.println(accountID);
 
@@ -49,9 +49,7 @@
 				str[i]=rs.getString(2);
 				id[i] = rs.getInt(1);
 				String type = rs.getString(3);
-				if (type == "admin"){
-					session.setAttribute("isAdmin",true);
-				}
+				session.setAttribute("isAdmin",type);
 				i++;
 		 	}
      }catch(SQLException e) {

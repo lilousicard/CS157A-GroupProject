@@ -4,7 +4,7 @@
   <body>
     <li><a href="http://localhost:8080/project/home.jsp">Go To Home Page</a></li>
     <%
-    if (session.getAttribute("isAdmin")== null){
+    if (!(session.getAttribute("isAdmin")).equals("admin")){
       %>
         <h1>ERROR, This form should not be access under such conditions</h1>
       <%

@@ -3,6 +3,7 @@
 	<head>
 		<title>Flick It Up!</title>
 		<link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
+		<link href="css/hover.css" rel="stylesheet" media="all">
 			<style><%@include file="css/account.css"%></style>
 		<link rel="stylesheet" type="text/css" href="/css/account.css">
 	</head>
@@ -77,10 +78,12 @@
 			}
 
 		%>
-		<a href="http://localhost:8080/project/home.jsp">Go To Home Page</a><br>
-		<a href="http://localhost:8080/project/billing.jsp">Billing Info</a><br>
-		<a href="http://localhost:8080/project/addUser.jsp">AddUser</a>
-
-
+	  <footer>
+		<ul>
+			<li><a href="http://localhost:8080/project/home.jsp">Go To Home Page</a></li>
+			<li><a href="http://localhost:8080/project/billing.jsp">Billing Info</a></li>
+			<li><a href="http://localhost:8080/project/addUser.jsp">AddUser</a></li>
+		</ul>
+	  </footer>
   </body>
 </html>

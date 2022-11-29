@@ -3,12 +3,7 @@
 <html>
 <head>
 
-<style>
-
-</style>
-
 <style><%@include file="css/home.css"%></style>
-
 
   <title>Flick It Up!</title>
 
@@ -35,7 +30,6 @@
           }
 
         }
-
 
         int movieID = (Integer)session.getAttribute("movieID");
         String user = "appdb";
@@ -112,6 +106,7 @@
           }
         }
     %>
+    <br><a href="http://localhost:8080/project/reviewForm.jsp">write a review on this movie</a><br>
     <br><br><br><br>
     <h2><a href="http://localhost:8080/project/home.jsp">Back To Home Page</a><h2><br>
   </body>

@@ -1,34 +1,53 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.*" %>
-
+<html>
 <head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.topnav {
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+<%@include file="css/home.css"%>
 </style>
 
-<style><%@include file="css/home.css"%></style>
-
-
   <title>Flick It Up!</title>
+
 
 </head>
 <body style="background-color:#b14e59;">
 
-  <nav>
-	<ul>
-		<li><a href="home.jsp">Home</a></li>
-		<li><a href="movies.jsp">Movies</a></li>
-      		<li><a href="favorite.jsp">Saved</a></li>
-	</ul>
-    <div class="searchbar">
-      <form action="search.jsp">
-        <input type="text" placeholder="Search Title, People, Genres..." name="search">
-        <button><i class="fa fa-search"></i></button>
-      </form>
-    </div>
-	</nav>
-
+<div class="topnav">
+  <a class="active" href="home.jsp">Home</a>
+  <a href="movies.jsp">Movies</a>
+  <a href="favorite.jsp">Favorites</a>
+  <a href="http://localhost:8080/project/accountPage.jsp">Account</a>
+</div>
+<br>
 
 
   <%if (session.getAttribute("accountID")==null){%>
@@ -40,7 +59,7 @@
       <form method="post">
         <input type="submit" value="Log Out" name="logOut">
       </form>
-      <p><sub><a href="http://localhost:8080/project/accountPage.jsp">Account</a></sub></p>
+      
   <%
       if (session.getAttribute("userID")==null){%>
         <p><sub> You did not pick a user!</sub></p>

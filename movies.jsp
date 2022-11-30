@@ -11,6 +11,7 @@
 
 <div class="topnav">
   <a  href="home.jsp">Home</a>
+  <a href ="movies.jsp">Movies</a>
   <a href="favorite.jsp">Favorites</a>
   <a href="accountPage.jsp">Account</a>
 </div>
@@ -39,6 +40,9 @@
         int movieID = (Integer)session.getAttribute("movieID");
         String user = "appdb";
         String password = "password";
+	PreparedStatement pstatement = null;
+	int updateQuery = 0;
+
         try {
             java.sql.Connection con;
             Class.forName("com.mysql.jdbc.Driver");
@@ -60,6 +64,21 @@
             <h2><%= year%></h2>
             <img src= <%=imagePath%> alt="poster" style="width:400px;height:600px;"><br>
             <br><a href="http://localhost:8080/project/reviewForm.jsp">write a review on this movie</a><br>
+	
+	<form method="post" action="favorite.jsp">
+		<input type="submit" value="Add to Favorites" name="favorites">
+	</form>
+	
+	String sign = request.getParamater("favorites");
+	if(sign != null)
+	{
+		int user = (Integer) session.getAttribute(userID);
+		query = "INSERT INTO favorites (user_id, movie_id) VALUES (?,?)";
+          	pstatement = connection.prepareStatement(query);
+		pstatement.setInt(1, user);
+		pstatement.setInt(2, movieID);
+		updateQuery = pstatement.executeUpdate();
+	}
             <h4><b>Genre: </b><%= genre%></h4>
             <h4><b>Rating: </b><%=rating%></h4>
             <h4><b>Duration: </b><%=duration%></h4>

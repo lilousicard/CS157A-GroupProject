@@ -8,10 +8,10 @@
 </head>
 
 <div class="topnav">
-  <a  href="home.jsp">Home</a>
-  <a href="favorite.jsp">Favorites</a>
-  <a class="active" href="accountPage.jsp">Account</a>
+  <a class = "active" href="login.jsp">Login</a>
+  <a href="signup.jsp">Sign Up</a>
 </div>
+    
 <br>
     <form method="post">
 

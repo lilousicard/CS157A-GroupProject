@@ -9,8 +9,7 @@
 
 
 </head>
-<body style="background-color:#b14e59;">
-
+	
 <div class="topnav">
   <a class="active" href="home.jsp">Home</a>
   <a href="favorite.jsp">Favorites</a>

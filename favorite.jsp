@@ -1,22 +1,56 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.*" %>
+<html>
 <head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.topnav {
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+<%@include file="css/home.css"%>
 </style>
-
-<style><%@include file="css/home.css"%></style>
-
 
   <title>Flick It Up!</title>
 
-</head>
-<body>
-  	<a href="home.jsp">Home</a>
 
-  <%if (session.getAttribute("accountID")==null || session.getAttribute("userID")==null){%>
-  <h2>Please check if you are a valid user then try again later!</h2>
+</head>
+<body style="background-color:#b14e59;">
+
+<div class="topnav">
+  <a href="home.jsp">Home</a>
+  <a class="active" href="favorite.jsp">Favorites</a>
+  <a href="http://localhost:8080/project/accountPage.jsp">Account</a>
+</div>
+<br>
+
+  <%
+  if (session.getAttribute("accountID")==null || session.getAttribute("userID")==null){%>
+  <h2>Please check if you are a valid user and try again later!</h2>
 
   <% }else{
     int accountID = (Integer)session.getAttribute("accountID");

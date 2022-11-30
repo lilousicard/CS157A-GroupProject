@@ -3,13 +3,53 @@
 <html>
 <head>
 
-<style><%@include file="css/home.css"%></style>
+    <title>Flick It Up!</title>
+    <link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
 
-  <title>Flick It Up!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+<%@include file="css/home.css"%>
+</style>
+
+
 
 </head>
-  <body>
-    <a href="home.jsp">Home</a>
+<body style="background-color:#b14e59;">
+
+<div class="topnav">
+  <a  href="home.jsp">Home</a>
+  <a href="favorite.jsp">Favorites</a>
+  <a href="accountPage.jsp">Account</a>
+</div>
+<br>
     <%
 
       if (session.getAttribute("movieID")==null){
@@ -54,6 +94,7 @@
             <h1><%= title %></h1>
             <h2><%= year%></h2>
             <img src= <%=imagePath%> alt="poster" style="width:400px;height:600px;"><br>
+            <br><a href="http://localhost:8080/project/reviewForm.jsp">write a review on this movie</a><br>
             <h4><b>Genre: </b><%= genre%></h4>
             <h4><b>Rating: </b><%=rating%></h4>
             <h4><b>Duration: </b><%=duration%></h4>
@@ -106,8 +147,7 @@
           }
         }
     %>
-    <br><a href="http://localhost:8080/project/reviewForm.jsp">write a review on this movie</a><br>
+   
     <br><br><br><br>
-    <h2><a href="http://localhost:8080/project/home.jsp">Back To Home Page</a><h2><br>
   </body>
 </html>

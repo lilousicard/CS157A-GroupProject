@@ -1,25 +1,57 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.*" %>
 
+
 <head>
+
     <title>Flick It Up!</title>
     <link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
     <link rel="stylesheet" type="text/css" href="css/billing.css"
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+<%@include file="css/home.css"%>
+</style>
+
+
+
 </head>
-<body>
-    <nav>
-	<ul>
-		<li><a href="home.jsp">Home</a></li>
-		<li><a href="movies.jsp">Movies</a></li>
-      		<li><a href="favorite.jsp">Saved</a></li>
-	</ul>
-    <div class="searchbar">
-      <form action="search.jsp">
-        <input type="text" placeholder="Search Title, People, Genres..." name="search">
-        <button><i class="fa fa-search"></i></button>
-      </form>
-    </div>
-	</nav>
+<body style="background-color:#b14e59;">
+
+<div class="topnav">
+  <a  href="home.jsp">Home</a>
+  <a href="favorite.jsp">Favorites</a>
+  <a class="active" href="accountPage.jsp">Account</a>
+</div>
+<br>
  
   <%if (session.getAttribute("accountID")==null){%>
   <h1>Error, Please try again Later</h1>

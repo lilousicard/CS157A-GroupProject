@@ -1,29 +1,67 @@
 <%@ page import="java.sql.*"%>
-<html>
-	<head>
+<head>
+
 		<title>Flick It Up!</title>
 		<link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
 		<link href="css/hover.css" rel="stylesheet" media="all">
 			<style><%@include file="css/account.css"%></style>
 		<link rel="stylesheet" type="text/css" href="/css/account.css">
-	</head>
-  <body>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+<%@include file="css/home.css"%>
+</style>
+
+  <title>Flick It Up!</title>
 
 
+</head>
+<body style="background-color:#b14e59;">
 
-	<ul>
-		<li><a href="home.jsp">Home</a></li>
-		<li><a href="movies.jsp">Movies</a></li>
-      		<li><a href="favorite.jsp">Saved</a></li>
-	</ul>
-    <div class="searchbar">
-      <form action="search.jsp">
-        <input type="text" placeholder="Search Title, People, Genres..." name="search">
-        <button><i class="fa fa-search"></i></button>
-      </form>
-    </div>
+<div class="topnav">
+  <a  href="home.jsp">Home</a>
+  <a href="favorite.jsp">Favorites</a>
+  <a class="active" href="accountPage.jsp">Account</a>
+</div>
+<br>
+	
+ <%
+  if (session.getAttribute("accountID")==null){%>
+  <h2>You are not logged in!</h2>
+  <p>Please choose an option below</p>
+  <p><sub><a href="http://localhost:8080/project/login.jsp">Login</a></sub>
+  <sub><a href="http://localhost:8080/project/register.jsp">Sign Up</a></sub></p>
+ 
 
-	<%
+  <%}else{
    int accountID = (Integer)session.getAttribute("accountID");
    //out.println(accountID);
 
@@ -55,6 +93,7 @@
      }catch(SQLException e) {
          out.println("SQLException caught: " + e.getMessage());
      }
+
   %>
 
 	  <form method="post">
@@ -81,14 +120,18 @@
 			<%
 		}
 
+
 		%>
 
-	  <footer>
+
 		<ul>
-			<li><a href="http://localhost:8080/project/home.jsp">Go To Home Page</a></li>
+			
 			<li><a href="http://localhost:8080/project/billing.jsp">Billing Info</a></li>
 			<li><a href="http://localhost:8080/project/addUser.jsp">AddUser</a></li>
 		</ul>
-	  </footer>
+
+<%
+}
+%>
   </body>
 </html>

@@ -2,44 +2,10 @@
 <%@ page import="java.io.*" %>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: transparent;
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-<%@include file="css/home.css"%>
-</style>
 
   <title>Flick It Up!</title>
 
-
 </head>
-<body style="background-color:#b14e59;">
 
 <div class="topnav">
   <a href="home.jsp">Home</a>

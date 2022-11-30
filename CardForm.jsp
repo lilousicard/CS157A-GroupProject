@@ -9,10 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-<body style="background-color:#b14e59;">
+<body>
 
 <div class="topnav">
-  <a  href="home.jsp">Home</a>
+  <a href="home.jsp">Home</a>
+  <a href="movies.jsp">Movies</a>
   <a href="favorite.jsp">Favorites</a>
   <a class="active" href="accountPage.jsp">Account</a>
 </div>

@@ -7,9 +7,11 @@
 
   <title>Flick It Up!</title>
 
+  <style><%@include file="css/home.css"%></style>
+
 
 </head>
-	
+
 <div class="topnav">
   <a class="active" href="home.jsp">Home</a>
   <a href="favorite.jsp">Favorites</a>
@@ -31,7 +33,7 @@
       <form method="post">
         <input type="submit" value="Log Out" name="logOut">
       </form>
-      
+
   <%
       if (session.getAttribute("userID")==null){%>
         <p><sub> You did not pick a user!</sub></p>

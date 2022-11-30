@@ -4,6 +4,7 @@
 <head>
 
   <title>Flick It Up!</title>
+  <style><%@include file="css/favorite.css"%></style>
 
 </head>
 
@@ -35,7 +36,7 @@
     rs.next();
     String name = rs.getString(2);
     %><h1><%= name%><b>'s Favorite Movies</b></h1><%
-    
+
 
     query = ("SELECT * FROM CS157A_Proj.movie Where movie_id in (Select movie_id From CS157A_Proj.favorite WHERE user_id = "+userID+");");
     rs = stmt.executeQuery(query);

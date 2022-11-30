@@ -1,5 +1,8 @@
 <%@ page import="java.sql.*"%>
 <html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/users.css">
+  </head>
   <body>
     <div class="topnav">
  	 <a  href="home.jsp">Home</a>
@@ -12,7 +15,7 @@
       </form>
     </div>
 </div>
-    
+
     <%
     int accountID = (Integer)session.getAttribute("accountID");
     //out.println(accountID);

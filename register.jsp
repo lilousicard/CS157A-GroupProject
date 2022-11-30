@@ -6,6 +6,7 @@
 		<title>Flick It Up!</title>
 		<link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
 		<link href="css/hover.css" rel="stylesheet" media="all">
+		<link rel="stylesheet" type="text/css" href="css/register.css">
 
 
 
@@ -14,7 +15,7 @@
 
 <div class="topnav">
   <a href="login.jsp">Login</a>
-  <a class = "active" href="signup.jsp">Sign Up</a>
+  <a class = "active" href="register.jsp">Sign Up</a>
 </div>
 <br>
 			<h1> Want to register?</h1>
@@ -85,7 +86,7 @@ if(sign != null && sign.equals("Sign Up")){
       		    connection.close();
 			}
 
-      		
+
   	}
 %>
 </FORM>

@@ -63,12 +63,11 @@
       out.println("SQLException caught: " + e.getMessage());
   }
   %>
+    
   <footer class="bottomnav">
-      <ul>
-          <li><a href="http://localhost:8080/project/CardForm.jsp">Change Billing information</a></li>
-          <li><a href="http://localhost:8080/project/deleteForm.jsp">Delete Your Account</a></li>
-      </ul>
-    </footer>
+			<a class="active" href="http://localhost:8080/project/billing.jsp">Billing Info</a>
+			<a href="http://localhost:8080/project/addUser.jsp">AddUser</a>
+ </footer>
 
   <%
 

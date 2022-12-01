@@ -16,15 +16,10 @@
   <a  href="home.jsp">Home</a>
   <a href="movies.jsp">Movies</a>
   <a href="favorite.jsp">Favorites</a>
+  <a href="search.jsp">Search</a>
   <a href="accountPage.jsp">Account</a>
 </div>
 
-<div class="searchbar">
-      <form action="search.jsp">
-        <input type="text" placeholder="Search Title, People, Genres..." name="search">
-        <button><i class="fa fa-search"></i></button>
-      </form>
-    </div>
 <br>
     <%
       //session.setAttribute("movieID",3);

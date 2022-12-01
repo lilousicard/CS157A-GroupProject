@@ -20,6 +20,13 @@
   <a href="favorite.jsp">Favorites</a>
   <a href="http://localhost:8080/project/accountPage.jsp">Account</a>
 </div>
+	
+<div class="searchbar">
+      <form action="search.jsp">
+        <input type="text" placeholder="Search Title, People, Genres..." name="search">
+        <button><i class="fa fa-search"></i></button>
+      </form>
+    </div>
 <br>
   <%if (session.getAttribute("accountID")==null){%>
   <h2>You are not logged in!</h2>

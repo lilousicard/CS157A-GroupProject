@@ -17,6 +17,13 @@
   	    <a href="favorite.jsp">Favorites</a>
   	    <a href="accountPage.jsp">Account</a>
       </div>
+      
+    <div class="searchbar">
+      <form action="search.jsp">
+        <input type="text" placeholder="Search Title, People, Genres..." name="search">
+        <button><i class="fa fa-search"></i></button>
+      </form>
+    </div>
     <%
 
       if (session.getAttribute("accountID")==null){

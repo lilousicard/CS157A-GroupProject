@@ -4,8 +4,9 @@
 		<title>Flick It Up!</title>
 		<link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
 		<link href="css/hover.css" rel="stylesheet" media="all">
-			<style><%@include file="css/account.css"%></style>
 		<link rel="stylesheet" type="text/css" href="/project/css/account.css">
+
+			<style><%@include file="css/account.css"%></style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 

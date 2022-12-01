@@ -12,6 +12,7 @@
 
 <div class="topnav">
   <a  href="home.jsp">Home</a>
+  <a href="movies.jsp">Movies</a>
   <a href="favorite.jsp">Favorites</a>
   <a class="active" href="accountPage.jsp">Account</a>
 </div>
@@ -53,7 +54,7 @@
           				pstatement = connection.prepareStatement(queryString);
           				pstatement.setString(1, Username);
           				pstatement.setString(2, Type);
-                  pstatement.setInt(3,accountID);
+                        pstatement.setInt(3,accountID);
           				updateQuery = pstatement.executeUpdate();
            				if (updateQuery != 0){
                     response.sendRedirect("accountPage.jsp");

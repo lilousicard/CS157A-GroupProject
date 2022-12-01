@@ -6,10 +6,12 @@
 
     <title>Flick It Up!</title>
     <link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
-    <link rel="stylesheet" type="text/css" href="css/billing.css">
+    <link rel="stylesheet" type="text/css" href="/project/css/billing.css">
+    <link href="css/hover.css" rel="stylesheet" media="all">
+
 
 </head>
-<body style="background-color:#b14e59;">
+<body>
 
 <div class="topnav">
   <a  href="home.jsp">Home</a>
@@ -53,8 +55,12 @@
       out.println("SQLException caught: " + e.getMessage());
   }
   %>
-  <a href="http://localhost:8080/project/CardForm.jsp">Change Billing information</a><br>
-  <a href="http://localhost:8080/project/deleteForm.jsp">Delete Your Account</a><br>
+  <footer class="bottomnav">
+      <ul>
+          <li><a href="http://localhost:8080/project/CardForm.jsp">Change Billing information</a></li>
+          <li><a href="http://localhost:8080/project/deleteForm.jsp">Delete Your Account</a></li>
+      </ul>
+    </footer>
 
   <%
 
@@ -68,3 +74,4 @@
 
 
 </body>
+</html>

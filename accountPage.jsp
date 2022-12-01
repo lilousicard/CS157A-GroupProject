@@ -6,8 +6,6 @@
 		<link href="css/hover.css" rel="stylesheet" media="all">
 		<link rel="stylesheet" type="text/css" href="/project/css/account.css">
 
-			<style><%@include file="css/account.css"%></style>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Flick It Up!</title>
@@ -21,6 +19,13 @@
   <a href="favorite.jsp">Favorites</a>
   <a class="active" href="accountPage.jsp">Account</a>
 </div>
+	
+	<div class="searchbar">
+      <form action="search.jsp">
+        <input type="text" placeholder="Search Title, People, Genres..." name="search">
+        <button><i class="fa fa-search"></i></button>
+      </form>
+    </div>
 <br>
 	
  <%

@@ -10,6 +10,7 @@
 
 <div class="topnav">
   <a href="home.jsp">Home</a>
+  <a href="movies.jsp">Movies</a>
   <a class="active" href="favorite.jsp">Favorites</a>
   <a href="http://localhost:8080/project/accountPage.jsp">Account</a>
 </div>
@@ -58,3 +59,4 @@
 
   %>
 </body>
+</html>

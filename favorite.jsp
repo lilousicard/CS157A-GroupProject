@@ -4,7 +4,9 @@
 <head>
 
   <title>Flick It Up!</title>
-  <style><%@include file="css/favorite.css"%></style>
+  <link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
+  <link rel="stylesheet" type="text/css" href="/project/css/favorite.css">
+  <link href="css/hover.css" rel="stylesheet" media="all">
 
 </head>
 

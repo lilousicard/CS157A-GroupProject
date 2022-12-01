@@ -16,6 +16,7 @@
 
 <div class="topnav">
   <a  href="home.jsp">Home</a>
+  <a href="movies.jsp">Movies</a>
   <a href="favorite.jsp">Favorites</a>
   <a class="active" href="accountPage.jsp">Account</a>
 </div>
@@ -98,12 +99,10 @@
 
 		%>
 
-
-		<ul>
-			
-			<li><a href="http://localhost:8080/project/billing.jsp">Billing Info</a></li>
-			<li><a href="http://localhost:8080/project/addUser.jsp">AddUser</a></li>
-		</ul>
+		<footer class="bottomnav">
+			<a href="http://localhost:8080/project/billing.jsp">Billing Info</a>
+			<a href="http://localhost:8080/project/addUser.jsp">AddUser</a>
+		</footer>
 
 <%
 }

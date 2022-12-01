@@ -30,3 +30,29 @@ body {
   background-color: #04AA6D;
   color: white;
 }
+
+.bottomnav {
+    overflow: hidden;
+    background-color: rgba(25, 25, 112, 0.5);
+    bottom: 0;
+    width: 100%;
+}
+
+.bottomnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px
+}
+
+.bottomnav a:hover {
+  background-color: midnightblue;
+  color: whitesmoke;
+}
+
+.bottomnav a.active {
+  background-color: midnightblue;
+  color: whitesmoke;
+}

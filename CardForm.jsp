@@ -18,12 +18,6 @@
   <a class="active" href="accountPage.jsp">Account</a>
 </div>
     
-   <div class="searchbar">
-      <form action="search.jsp">
-        <input type="text" placeholder="Search Title, People, Genres..." name="search">
-        <button><i class="fa fa-search"></i></button>
-      </form>
-    </div>
 <br>
     <%
 
@@ -107,3 +101,11 @@
 }
 
     %>
+    
+    <footer class="bottomnav">
+			<a href="http://localhost:8080/project/billing.jsp">Billing Info</a>
+			<a href="http://localhost:8080/project/addUser.jsp">AddUser</a>
+            <a href="deleteForm.jsp">Delete Account</a>
+	</footer>
+</body>
+</html>

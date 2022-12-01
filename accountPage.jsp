@@ -8,9 +8,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Flick It Up!</title>
-
-
 </head>
 <body>
 

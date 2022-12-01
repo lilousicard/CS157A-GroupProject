@@ -1,6 +1,10 @@
 <%@ page import="java.sql.*"%>
 
 <html>
+  <head>
+    <title>Flick It Up!</title>
+    <link rel="stylesheet" type="text/css" href="/project/css/reviewForm.css">
+  </head>
   <body>
 
     <%

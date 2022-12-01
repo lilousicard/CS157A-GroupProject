@@ -65,5 +65,10 @@
   }
 
   %>
+	<footer class="bottomnav">
+		<a href="http://localhost:8080/project/billing.jsp">Billing Info</a>
+		<a href="http://localhost:8080/project/addUser.jsp">AddUser</a>
+      		<a href="deleteForm.jsp">Delete Account</a>
+	</footer>
 </body>
 </html>

@@ -13,16 +13,11 @@
 <div class="topnav">
   <a href="home.jsp">Home</a>
   <a href="movies.jsp">Movies</a>
+	  <a href="search.jsp">Search</a>
   <a class="active" href="favorite.jsp">Favorites</a>
   <a href="http://localhost:8080/project/accountPage.jsp">Account</a>
 </div>
-	
-<div class="searchbar">
-      <form action="search.jsp">
-        <input type="text" placeholder="Search Title, People, Genres..." name="search">
-        <button><i class="fa fa-search"></i></button>
-      </form>
-    </div>
+
 <br>
 
   <%

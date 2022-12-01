@@ -6,14 +6,17 @@
 
 
   <title>Flick It Up!</title>
-
-  <style><%@include file="css/home.css"%></style>
+    <link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
+    <link href="css/hover.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" href="/project/css/home.css">
+  
 
 
 </head>
 
 <div class="topnav">
   <a class="active" href="home.jsp">Home</a>
+  <a href="movies.jsp">Movies</a>
   <a href="favorite.jsp">Favorites</a>
   <a href="http://localhost:8080/project/accountPage.jsp">Account</a>
 </div>
@@ -147,7 +150,5 @@
 
   %>
 
-
-
-
 </body>
+</html>

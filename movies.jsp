@@ -82,13 +82,13 @@
 	{
 		int userID = (Integer) session.getAttribute("userID");
 		query = "INSERT INTO favorite (user_id, movie_id) VALUES (?,?)";
-    pstatement = con.prepareStatement(query);
+    		pstatement = con.prepareStatement(query);
 		pstatement.setInt(1, userID);
 		pstatement.setInt(2, movieID);
 		updateQuery = pstatement.executeUpdate();
-    if(updateQuery!=0){
-      response.sendRedirect("favorite.jsp");
-    }
+    	if(updateQuery!=0)
+      		response.sendRedirect("favorite.jsp");
+    		
 	}%>
             <h4><b>Genre: </b><%= genre%></h4>
             <h4><b>Rating: </b><%=rating%></h4>

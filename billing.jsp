@@ -15,6 +15,7 @@
 
 <div class="topnav">
   <a  href="home.jsp">Home</a>
+  <a href="movies.jsp">Movies</a>
   <a href="favorite.jsp">Favorites</a>
   <a class="active" href="accountPage.jsp">Account</a>
 </div>

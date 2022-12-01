@@ -6,12 +6,17 @@
       <title>Flick It Up!</title>
       <link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
   	<link href="css/hover.css" rel="stylesheet" media="all">
-      <link rel="stylesheet" type="text/css" href="css/deleteForm.css"
+      <link rel="stylesheet" type="text/css" href="/project/css/deleteForm.css"
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
   </head>
   <body>
-    <a href="http://localhost:8080/project/home.jsp">Home Page</a><br>
+      <div class="topnav">
+ 	      <a href="home.jsp">Home</a>
+        <a href="movies.jsp">Movies</a>
+  	    <a href="favorite.jsp">Favorites</a>
+  	    <a href="accountPage.jsp">Account</a>
+      </div>
     <%
 
       if (session.getAttribute("accountID")==null){

@@ -7,18 +7,18 @@
     <link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
     <link href="css/hover.css" rel="stylesheet" media="all">
     <link rel="stylesheet" type="text/css" href="/project/css/movies.css">
-	
+
 </head>
 <body>
 
 <div class="topnav">
   <a  href="home.jsp">Home</a>
-  <a href ="movies.jsp">Movies</a>
+  <a class="active" href ="movies.jsp">Movies</a>
   <a href="favorite.jsp">Favorites</a>
   <a href="search.jsp">Search</a>
   <a href="accountPage.jsp">Account</a>
 </div>
-	
+
 <br>
     <%
 
@@ -67,7 +67,7 @@
             int year = rs.getInt(4);
             String description = rs.getString(5);
             int duration = rs.getInt(6);
-            double rating = rs.getInt(7);
+            double rating = rs.getDouble(7);
             String language = rs.getString(8);
             String imagePath = "http://localhost:8080/project/image/"+rs.getString(9);
             %>
@@ -91,7 +91,7 @@
 		updateQuery = pstatement.executeUpdate();
     	if(updateQuery!=0)
       		response.sendRedirect("favorite.jsp");
-    		
+
 	}%>
             <h4><b>Genre: </b><%= genre%></h4>
             <h4><b>Rating: </b><%=rating%></h4>
@@ -147,7 +147,7 @@
     %>
 
     <br><br><br><br>
-	
+
 	<footer class="bottomnav">
 		<a href="http://localhost:8080/project/billing.jsp">Billing Info</a>
 		<a href="http://localhost:8080/project/addUser.jsp">AddUser</a>

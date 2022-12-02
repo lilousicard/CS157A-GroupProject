@@ -20,14 +20,14 @@
 </div>
 
 <br>
-	
+
  <%
   if (session.getAttribute("accountID")==null){%>
   <h2>You are not logged in!</h2>
   <p>Please choose an option below</p>
   <p><sub><a href="http://localhost:8080/project/login.jsp">Login</a></sub>
   <sub><a href="http://localhost:8080/project/register.jsp">Sign Up</a></sub></p>
- 
+
 
   <%}else{
    int accountID = (Integer)session.getAttribute("accountID");
@@ -82,7 +82,7 @@
 				response.sendRedirect("home.jsp");
 			}
 
-			if ((session.getAttribute("isAdmin")).equals("admin")){
+			if ((session.getAttribute("isAdmin"))!=null&&(session.getAttribute("isAdmin")).equals("admin")){
 				%>
 			<li><a href="http://localhost:8080/project/adminReview.jsp">Review the movie Review</a></li>
 			<%

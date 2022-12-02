@@ -5,7 +5,7 @@
     <title>Flick It Up!</title>
     <link rel="icon" type="image/png" href="https://pics.freeicons.io/uploads/icons/png/19348469091553508380-512.png">
     <link href="css/hover.css" rel="stylesheet" media="all">
-    <link rel="stylesheet" type="text/css" href="/project/css/cardForm.css">
+    <link rel="stylesheet" type="text/css" href="css/cardForm.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -18,7 +18,7 @@
   <a href="search.jsp">Search</a>
   <a class="active" href="accountPage.jsp">Account</a>
 </div>
-    
+
 <br>
     <%
 
@@ -102,7 +102,7 @@
 }
 
     %>
-    
+
     <footer class="bottomnav">
 			<a href="http://localhost:8080/project/billing.jsp">Billing Info</a>
 			<a href="http://localhost:8080/project/addUser.jsp">AddUser</a>

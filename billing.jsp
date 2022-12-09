@@ -20,9 +20,9 @@
   <a href="search.jsp">Search</a>
   <a class="active" href="accountPage.jsp">Account</a>
 </div>
-    
+
 <br>
- 
+
   <%if (session.getAttribute("accountID")==null){%>
   <h1>Error, Please try again Later</h1>
 
@@ -58,7 +58,7 @@
       out.println("SQLException caught: " + e.getMessage());
   }
   %>
-    
+
 
   <%
 
@@ -69,6 +69,7 @@
 	<footer class="bottomnav">
 		<a class="active" href="http://localhost:8080/project/billing.jsp">Billing Info</a>
 		<a href="http://localhost:8080/project/addUser.jsp">AddUser</a>
+    <a href="http://localhost:8080/project/CardForm.jsp">Edit Card</a>
       		<a href="deleteForm.jsp">Delete Account</a>
 	</footer>
 
